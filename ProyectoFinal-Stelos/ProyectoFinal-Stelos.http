@@ -1,0 +1,6 @@
+@ProyectoFinal_Stelos_HostAddress = http://localhost:5086
+
+GET {{ProyectoFinal_Stelos_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
