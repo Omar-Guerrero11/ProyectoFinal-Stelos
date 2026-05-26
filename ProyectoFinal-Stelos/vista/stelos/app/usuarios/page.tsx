@@ -65,7 +65,6 @@ export default function UsuariosPage() {
 						>
 							<TabsList>
 								<TabsTrigger value="usuarios">Gestión</TabsTrigger>
-								<TabsTrigger value="sesion">Sesión</TabsTrigger>
 							</TabsList>
 
 							<TabsContent
@@ -121,14 +120,7 @@ export default function UsuariosPage() {
 																placeholder="correo@dominio.com"
 															/>
 														</div>
-														<div className="space-y-2">
-															<Label htmlFor="nuevo-password">Contraseña</Label>
-															<Input
-																id="nuevo-password"
-																type="password"
-																placeholder="••••••••"
-															/>
-														</div>
+
 														<div className="space-y-2">
 															<Label htmlFor="nuevo-rol">Rol</Label>
 															<Select>
@@ -137,9 +129,6 @@ export default function UsuariosPage() {
 																</SelectTrigger>
 																<SelectContent>
 																	<SelectItem value="cajero">Cajero</SelectItem>
-																	<SelectItem value="encargado">
-																		Encargado
-																	</SelectItem>
 																	<SelectItem value="administrador">
 																		Administrador
 																	</SelectItem>
@@ -170,15 +159,13 @@ export default function UsuariosPage() {
 														<TableHead>Nombre</TableHead>
 														<TableHead>Correo</TableHead>
 														<TableHead>Rol</TableHead>
-														<TableHead>Estado</TableHead>
-														<TableHead>Último acceso</TableHead>
 														<TableHead>Acciones</TableHead>
 													</TableRow>
 												</TableHeader>
 												<TableBody>
 													<TableRow>
 														<TableCell
-															colSpan={6}
+															colSpan={4}
 															className="py-8 text-center text-muted-foreground"
 														>
 															Sin usuarios cargados desde backend
@@ -190,25 +177,12 @@ export default function UsuariosPage() {
 									</CardContent>
 								</Card>
 
-								<div className="grid gap-4 md:grid-cols-3">
+								<div className="grid gap-4 md:grid-cols-2">
 									<Card>
 										<CardHeader className="pb-3">
 											<CardTitle className="flex items-center gap-2 text-base">
 												<Shield className="h-4 w-4" />
 												Cajero
-											</CardTitle>
-										</CardHeader>
-										<CardContent>
-											<p className="text-sm text-muted-foreground">
-												Permisos definidos por backend.
-											</p>
-										</CardContent>
-									</Card>
-									<Card>
-										<CardHeader className="pb-3">
-											<CardTitle className="flex items-center gap-2 text-base">
-												<Shield className="h-4 w-4" />
-												Encargado
 											</CardTitle>
 										</CardHeader>
 										<CardContent>
@@ -233,24 +207,7 @@ export default function UsuariosPage() {
 								</div>
 							</TabsContent>
 
-							<TabsContent
-								value="sesion"
-								className="space-y-4"
-							>
-								<Card>
-									<CardHeader>
-										<CardTitle>Inicio/Cierre de sesión</CardTitle>
-										<CardDescription>
-											Espacio reservado para autenticación real.
-										</CardDescription>
-									</CardHeader>
-									<CardContent>
-										<div className="rounded-md border p-6 text-center text-muted-foreground">
-											No hay sesión simulada ni datos embebidos.
-										</div>
-									</CardContent>
-								</Card>
-							</TabsContent>
+
 						</Tabs>
 					</div>
 				</main>
