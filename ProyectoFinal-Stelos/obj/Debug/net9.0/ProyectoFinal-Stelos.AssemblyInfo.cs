@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProyectoFinal-Stelos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9919c4d67b86cbcf32052f279b1e9241a48a05bd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26c3afb186bac0ca037d7fd4959ceb9e69157bd5")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProyectoFinal-Stelos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProyectoFinal-Stelos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
