@@ -1,1 +1,12 @@
-{"Version":1,"Hash":"wr/49HKgBMJ//Hm7j/WjorR15YtoFSdqCVD1X1CpjoQ=","Source":"ProyectoFinal-Stelos","BasePath":"/","Mode":"Root","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "YOCsUFwnkB2lAN5xBKKwbm+jsKSTByEW22xDQ78/gCE=",
+  "Source": "ProyectoFinal-Stelos",
+  "BasePath": "_content/ProyectoFinal-Stelos",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
