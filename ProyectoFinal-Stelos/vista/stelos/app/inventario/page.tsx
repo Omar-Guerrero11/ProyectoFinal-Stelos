@@ -28,12 +28,9 @@ import {
 	TableRow,
 } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Barcode, Package } from 'lucide-react'
+import { Package } from 'lucide-react'
 
 export default function InventarioPage() {
-	const handleGenerateBarcode = () => {
-		alert('Conecta esta acción a tu backend para generar códigos reales.')
-	}
 
 	return (
 		<div className="flex h-screen flex-col">
@@ -103,22 +100,17 @@ export default function InventarioPage() {
 											<Table>
 												<TableHeader>
 													<TableRow>
-														<TableHead>Código</TableHead>
 														<TableHead>Nombre</TableHead>
 														<TableHead>Talla</TableHead>
-														<TableHead>Color</TableHead>
 														<TableHead className="text-right">Precio</TableHead>
-														<TableHead className="text-right">
-															Cantidad
-														</TableHead>
-														<TableHead>Proveedor</TableHead>
+														<TableHead className="text-right">Cantidad</TableHead>
 														<TableHead>Acciones</TableHead>
 													</TableRow>
 												</TableHeader>
 												<TableBody>
 													<TableRow>
 														<TableCell
-															colSpan={8}
+															colSpan={5}
 															className="py-8 text-center text-muted-foreground"
 														>
 															Sin productos cargados desde backend
@@ -138,7 +130,6 @@ export default function InventarioPage() {
 								<Card>
 									<CardHeader>
 										<CardTitle className="flex items-center gap-2">
-											<Barcode className="h-5 w-5" />
 											Nuevo producto
 										</CardTitle>
 										<CardDescription>
@@ -148,22 +139,7 @@ export default function InventarioPage() {
 									<CardContent>
 										<form className="space-y-6">
 											<div className="grid gap-4 md:grid-cols-2">
-												<div className="space-y-2">
-													<Label htmlFor="codigo">Código</Label>
-													<div className="flex gap-2">
-														<Input
-															id="codigo"
-															placeholder="Código del producto"
-														/>
-														<Button
-															type="button"
-															variant="outline"
-															onClick={handleGenerateBarcode}
-														>
-															Generar
-														</Button>
-													</div>
-												</div>
+
 												<div className="space-y-2">
 													<Label htmlFor="nombre">Nombre</Label>
 													<Input
@@ -188,13 +164,6 @@ export default function InventarioPage() {
 													</Select>
 												</div>
 												<div className="space-y-2">
-													<Label htmlFor="color">Color</Label>
-													<Input
-														id="color"
-														placeholder="Color"
-													/>
-												</div>
-												<div className="space-y-2">
 													<Label htmlFor="precio-nuevo">Precio</Label>
 													<Input
 														id="precio-nuevo"
@@ -212,13 +181,6 @@ export default function InventarioPage() {
 														type="number"
 														placeholder="0"
 														min="0"
-													/>
-												</div>
-												<div className="space-y-2">
-													<Label htmlFor="proveedor">Proveedor</Label>
-													<Input
-														id="proveedor"
-														placeholder="Proveedor"
 													/>
 												</div>
 												<div className="space-y-2">
