@@ -1,6 +1,5 @@
 ﻿namespace ProyectoFinal_Stelos.Dtos
 {
-
     public class DetalleVentaDto
     {
         public int VentaId { get; set; }
