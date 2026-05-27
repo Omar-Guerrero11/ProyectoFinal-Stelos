@@ -20,8 +20,26 @@ builder.Services
     options.JsonSerializerOptions.ReferenceHandler =
         ReferenceHandler.IgnoreCycles;
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Front",
+        policy =>
+        {
+            policy
+                .WithOrigins(
+                    "http://192.168.56.1:3000"
+                )
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
+builder.Services.AddControllers();
+
 
 var app = builder.Build();
+
+app.UseCors("Front");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
