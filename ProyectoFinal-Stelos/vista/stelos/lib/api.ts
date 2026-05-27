@@ -10,6 +10,12 @@ export type UsuarioDto = {
   nombre: string
   email: string
   rol: string
+  password: string
+}
+
+export type LoginDto = {
+  email: string
+  password: string
 }
 
 export type VentaDto = {
@@ -33,7 +39,9 @@ const jsonHeaders = {
   'Content-Type': 'application/json',
 }
 
-const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL ?? ''
+const apiBaseUrl =
+  (globalThis as { process?: { env?: Record<string, string> } }).process?.env
+    ?.NEXT_PUBLIC_API_BASE_URL ?? ''
 
 const buildUrl = (path: string) => {
   if (!apiBaseUrl) {
@@ -60,6 +68,20 @@ export async function createProducto(dto: ProductoDto) {
 
   if (!response.ok) {
     throw new Error('No se pudo crear producto')
+  }
+
+  return response.json()
+}
+
+export async function login(dto: LoginDto) {
+  const response = await fetch(buildUrl('/api/Auth/login'), {
+    method: 'POST',
+    headers: jsonHeaders,
+    body: JSON.stringify(dto),
+  })
+
+  if (!response.ok) {
+    throw new Error('Credenciales inválidas')
   }
 
   return response.json()

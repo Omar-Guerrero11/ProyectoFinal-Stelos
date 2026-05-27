@@ -38,7 +38,7 @@ import {
 } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Shield, UserPlus, Users } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createUsuario, getUsuarios } from '@/lib/api'
 
 type Usuario = {
@@ -56,6 +56,7 @@ export default function UsuariosPage() {
 		nombre: '',
 		email: '',
 		rol: '',
+		password: '',
 	})
 
 	useEffect(() => {
@@ -74,7 +75,7 @@ export default function UsuariosPage() {
 	const handleNuevoUsuarioChange =
 		(field: keyof typeof nuevoUsuario) =>
 		(e: React.ChangeEvent<HTMLInputElement>) => {
-			setNuevoUsuario((prev) => ({
+			setNuevoUsuario((prev: typeof nuevoUsuario) => ({
 				...prev,
 				[field]: e.target.value,
 			}))
@@ -85,11 +86,12 @@ export default function UsuariosPage() {
 			nombre: nuevoUsuario.nombre.trim(),
 			email: nuevoUsuario.email.trim(),
 			rol: nuevoUsuario.rol,
+			password: nuevoUsuario.password,
 		}
 
 		const created = await createUsuario(payload)
-		setUsuarios((prev) => [created, ...prev])
-		setNuevoUsuario({ nombre: '', email: '', rol: '' })
+		setUsuarios((prev: Usuario[]) => [created, ...prev])
+		setNuevoUsuario({ nombre: '', email: '', rol: '', password: '' })
 		setOpenNewUser(false)
 	}
 
@@ -175,27 +177,37 @@ export default function UsuariosPage() {
 															/>
 														</div>
 
-														<div className="space-y-2">
-															<Label htmlFor="nuevo-rol">Rol</Label>
-												<Select
-													value={nuevoUsuario.rol}
-													onValueChange={(value) =>
-														setNuevoUsuario((prev) => ({
-															...prev,
-															rol: value,
-														}))
-													}
-												>
-																<SelectTrigger id="nuevo-rol">
-																	<SelectValue placeholder="Seleccione un rol" />
-																</SelectTrigger>
-																<SelectContent>
-																	<SelectItem value="cajero">Cajero</SelectItem>
-																	<SelectItem value="administrador">
-																		Administrador
-																	</SelectItem>
-																</SelectContent>
-															</Select>
+												<div className="space-y-2">
+													<Label htmlFor="nuevo-rol">Rol</Label>
+													<Select
+														value={nuevoUsuario.rol}
+														onValueChange={(value) =>
+															setNuevoUsuario((prev: typeof nuevoUsuario) => ({
+																...prev,
+																rol: value,
+															}))
+														}
+													>
+														<SelectTrigger id="nuevo-rol">
+															<SelectValue placeholder="Seleccione un rol" />
+														</SelectTrigger>
+														<SelectContent>
+															<SelectItem value="cajero">Cajero</SelectItem>
+															<SelectItem value="administrador">
+																Administrador
+															</SelectItem>
+														</SelectContent>
+													</Select>
+												</div>
+												<div className="space-y-2">
+													<Label htmlFor="nuevo-password">Contraseña</Label>
+													<Input
+														id="nuevo-password"
+														type="password"
+														placeholder="Contraseña"
+														value={nuevoUsuario.password}
+														onChange={handleNuevoUsuarioChange('password')}
+													/>
 														</div>
 													</div>
 													<DialogFooter>
@@ -244,7 +256,7 @@ export default function UsuariosPage() {
 																</TableCell>
 															</TableRow>
 														) : (
-															usuarios.map((usuario) => (
+															usuarios.map((usuario: Usuario) => (
 																<TableRow key={usuario.id}>
 																	<TableCell className="font-medium">
 																		{usuario.nombre}
