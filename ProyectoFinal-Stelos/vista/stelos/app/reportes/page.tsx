@@ -2,7 +2,6 @@
 
 import { Header } from '@/components/header'
 import { SidebarNav } from '@/components/sidebar-nav'
-import { Button } from '@/components/ui/button'
 import {
 	Card,
 	CardContent,
@@ -10,22 +9,31 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from '@/components/ui/select'
+import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { BarChart3, Package } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { getReporteVentasGeneral } from '@/lib/api'
 
 export default function ReportesPage() {
-	const handleExport = (format: string) => {
-		alert(`Conecta la exportación ${format} a tu backend.`)
+	const [reporteVentas, setReporteVentas] = useState('')
+	const [loadingReporte, setLoadingReporte] = useState(true)
+
+	const loadReporte = async () => {
+		setLoadingReporte(true)
+		try {
+			const data = await getReporteVentasGeneral()
+			setReporteVentas(data)
+		} catch {
+			setReporteVentas('No se pudo cargar el reporte de ventas.')
+		} finally {
+			setLoadingReporte(false)
+		}
 	}
+
+	useEffect(() => {
+		loadReporte()
+	}, [])
 
 	return (
 		<div className="flex h-screen flex-col">
@@ -49,8 +57,6 @@ export default function ReportesPage() {
 						>
 							<TabsList>
 								<TabsTrigger value="ventas">Ventas</TabsTrigger>
-								<TabsTrigger value="inventario">Inventario</TabsTrigger>
-								<TabsTrigger value="resumen">Resumen</TabsTrigger>
 							</TabsList>
 
 							<TabsContent
@@ -61,56 +67,38 @@ export default function ReportesPage() {
 									<CardHeader>
 										<CardTitle className="flex items-center gap-2">
 											<BarChart3 className="h-5 w-5" />
-											Reportes de ventas
+											Reporte general de ventas
 										</CardTitle>
 										<CardDescription>
-											Sin datos simulados. Conecta tus endpoints para poblar
-											esta sección.
+											Resumen en texto de todas las ventas registradas.
 										</CardDescription>
 									</CardHeader>
-									<CardContent className="space-y-6">
-										<div className="grid gap-4 md:grid-cols-3">
-											<div className="space-y-2">
-												<Label htmlFor="periodo-ventas">Periodo</Label>
-												<Select>
-													<SelectTrigger id="periodo-ventas">
-														<SelectValue placeholder="Seleccione periodo" />
-													</SelectTrigger>
-													<SelectContent>
-														<SelectItem value="dia">Día</SelectItem>
-														<SelectItem value="mes">Mes</SelectItem>
-														<SelectItem value="ano">Año</SelectItem>
-													</SelectContent>
-												</Select>
-											</div>
-											<div className="space-y-2">
-												<Label htmlFor="desde">Desde</Label>
-												<Input
-													id="desde"
-													type="date"
-												/>
-											</div>
-											<div className="space-y-2">
-												<Label htmlFor="hasta">Hasta</Label>
-												<Input
-													id="hasta"
-													type="date"
-												/>
-											</div>
-										</div>
-
-										<div className="flex gap-2">
-											<Button onClick={() => handleExport('PDF')}>PDF</Button>
+									<CardContent>
+										<div className="flex items-center justify-between">
+											<p className="text-sm text-muted-foreground">
+												Reporte actualizado desde el backend.
+											</p>
 											<Button
 												variant="outline"
-												onClick={() => handleExport('Excel')}
+												onClick={loadReporte}
+												disabled={loadingReporte}
 											>
-												Excel
+												Actualizar
 											</Button>
 										</div>
-
-										<div className="rounded-md border p-6 text-center text-muted-foreground">
-											Los indicadores y tablas se cargarán desde backend.
+										<div className="mt-4 rounded-md border bg-background p-6">
+											{loadingReporte ? (
+												<div className="space-y-2">
+													<div className="h-3 w-3/4 animate-pulse rounded bg-muted" />
+													<div className="h-3 w-2/3 animate-pulse rounded bg-muted" />
+													<div className="h-3 w-5/6 animate-pulse rounded bg-muted" />
+													<div className="h-3 w-1/2 animate-pulse rounded bg-muted" />
+												</div>
+											) : (
+												<pre className="whitespace-pre-wrap text-sm text-foreground">
+													{reporteVentas}
+												</pre>
+											)}
 										</div>
 									</CardContent>
 								</Card>
@@ -138,24 +126,6 @@ export default function ReportesPage() {
 								</Card>
 							</TabsContent>
 
-							<TabsContent
-								value="resumen"
-								className="space-y-4"
-							>
-								<Card>
-									<CardHeader>
-										<CardTitle>Resumen general</CardTitle>
-										<CardDescription>
-											Métricas vacías hasta integrar datos reales.
-										</CardDescription>
-									</CardHeader>
-									<CardContent>
-										<div className="rounded-md border p-6 text-center text-muted-foreground">
-											No hay cifras hardcoded en esta vista.
-										</div>
-									</CardContent>
-								</Card>
-							</TabsContent>
 						</Tabs>
 					</div>
 				</main>

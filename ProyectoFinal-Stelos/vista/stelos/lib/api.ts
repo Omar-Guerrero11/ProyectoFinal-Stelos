@@ -65,6 +65,14 @@ export async function createProducto(dto: ProductoDto) {
   return response.json()
 }
 
+export async function getReporteVentasGeneral() {
+  const response = await fetch(buildUrl('/api/Reportes/ventas-general'))
+  if (!response.ok) {
+    throw new Error('No se pudo cargar el reporte de ventas')
+  }
+  return response.text()
+}
+
 export async function getUsuarios() {
   const response = await fetch(buildUrl('/api/Usuarios'))
   if (!response.ok) {

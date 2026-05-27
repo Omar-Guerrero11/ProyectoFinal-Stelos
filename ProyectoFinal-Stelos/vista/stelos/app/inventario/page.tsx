@@ -123,7 +123,6 @@ export default function InventarioPage() {
 								<TabsTrigger value="productos">Productos</TabsTrigger>
 								<TabsTrigger value="nuevo">Nuevo Producto</TabsTrigger>
 								<TabsTrigger value="actualizar">Actualizar Stock</TabsTrigger>
-								<TabsTrigger value="tiemporeal">Tiempo Real</TabsTrigger>
 							</TabsList>
 
 							<TabsContent
@@ -386,24 +385,6 @@ export default function InventarioPage() {
 								</Card>
 							</TabsContent>
 
-							<TabsContent
-								value="tiemporeal"
-								className="space-y-4"
-							>
-								<Card>
-									<CardHeader>
-										<CardTitle>Inventario en tiempo real</CardTitle>
-										<CardDescription>
-											Los indicadores se cargan desde tu API.
-										</CardDescription>
-									</CardHeader>
-									<CardContent>
-										<div className="rounded-md border p-6 text-center text-muted-foreground">
-											Sin métricas hardcoded. Conecta el endpoint de inventario.
-										</div>
-									</CardContent>
-								</Card>
-							</TabsContent>
 						</Tabs>
 					</div>
 				</main>
