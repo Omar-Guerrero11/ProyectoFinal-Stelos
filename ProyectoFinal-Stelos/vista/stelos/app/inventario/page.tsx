@@ -29,8 +29,74 @@ import {
 } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Package } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { createProducto, getProductos } from '@/lib/api'
+
+type Producto = {
+	id: number
+	nombre: string
+	categoria: string
+	precio: number
+	talla: string
+	stock: number
+}
 
 export default function InventarioPage() {
+	const [productos, setProductos] = useState<Producto[]>([])
+	const [loadingProductos, setLoadingProductos] = useState(true)
+	const [nuevoProducto, setNuevoProducto] = useState({
+		nombre: '',
+		categoria: '',
+		precio: '',
+		talla: '',
+		stock: '',
+	})
+
+	useEffect(() => {
+		const loadProductos = async () => {
+			try {
+				const data = await getProductos()
+				setProductos(data)
+			} finally {
+				setLoadingProductos(false)
+			}
+		}
+
+		loadProductos()
+	}, [])
+
+	const handleNuevoProductoChange =
+		(field: keyof typeof nuevoProducto) =>
+		(e: React.ChangeEvent<HTMLInputElement>) => {
+			setNuevoProducto((prev) => ({
+				...prev,
+				[field]: e.target.value,
+			}))
+		}
+
+	const handleCreateProducto = async (
+		e: React.FormEvent<HTMLFormElement>
+	) => {
+		e.preventDefault()
+
+		const payload = {
+			nombre: nuevoProducto.nombre.trim(),
+			categoria: nuevoProducto.categoria.trim(),
+			precio: Number.parseFloat(nuevoProducto.precio || '0'),
+			talla: nuevoProducto.talla,
+			stock: Number.parseInt(nuevoProducto.stock || '0', 10),
+		}
+
+		const created = await createProducto(payload)
+		setProductos((prev) => [created, ...prev])
+		setNuevoProducto({
+			nombre: '',
+			categoria: '',
+			precio: '',
+			talla: '',
+			stock: '',
+		})
+	}
 
 	return (
 		<div className="flex h-screen flex-col">
@@ -107,16 +173,43 @@ export default function InventarioPage() {
 														<TableHead>Acciones</TableHead>
 													</TableRow>
 												</TableHeader>
-												<TableBody>
-													<TableRow>
-														<TableCell
-															colSpan={5}
-															className="py-8 text-center text-muted-foreground"
-														>
-															Sin productos cargados desde backend
+										<TableBody>
+											{loadingProductos ? (
+												<TableRow>
+													<TableCell
+														colSpan={5}
+														className="py-8 text-center text-muted-foreground"
+													>
+														Cargando productos...
+													</TableCell>
+												</TableRow>
+											) : productos.length === 0 ? (
+												<TableRow>
+													<TableCell
+														colSpan={5}
+														className="py-8 text-center text-muted-foreground"
+													>
+														Sin productos cargados desde backend
+													</TableCell>
+												</TableRow>
+											) : (
+												productos.map((producto) => (
+													<TableRow key={producto.id}>
+														<TableCell className="font-medium">
+															{producto.nombre}
 														</TableCell>
+														<TableCell>{producto.talla}</TableCell>
+														<TableCell className="text-right">
+															{producto.precio.toFixed(2)}
+														</TableCell>
+														<TableCell className="text-right">
+															{producto.stock}
+														</TableCell>
+														<TableCell></TableCell>
 													</TableRow>
-												</TableBody>
+												))
+											)}
+										</TableBody>
 											</Table>
 										</div>
 									</CardContent>
@@ -137,19 +230,32 @@ export default function InventarioPage() {
 										</CardDescription>
 									</CardHeader>
 									<CardContent>
-										<form className="space-y-6">
+									<form
+										className="space-y-6"
+										onSubmit={handleCreateProducto}
+									>
 											<div className="grid gap-4 md:grid-cols-2">
 
 												<div className="space-y-2">
 													<Label htmlFor="nombre">Nombre</Label>
-													<Input
-														id="nombre"
-														placeholder="Nombre del producto"
-													/>
+												<Input
+													id="nombre"
+													placeholder="Nombre del producto"
+													value={nuevoProducto.nombre}
+													onChange={handleNuevoProductoChange('nombre')}
+												/>
 												</div>
 												<div className="space-y-2">
 													<Label htmlFor="talla-nuevo">Talla</Label>
-													<Select>
+												<Select
+													value={nuevoProducto.talla}
+													onValueChange={(value) =>
+														setNuevoProducto((prev) => ({
+															...prev,
+															talla: value,
+														}))
+													}
+												>
 														<SelectTrigger id="talla-nuevo">
 															<SelectValue placeholder="Seleccione talla" />
 														</SelectTrigger>
@@ -165,30 +271,36 @@ export default function InventarioPage() {
 												</div>
 												<div className="space-y-2">
 													<Label htmlFor="precio-nuevo">Precio</Label>
-													<Input
-														id="precio-nuevo"
-														type="number"
-														placeholder="0.00"
-														step="0.01"
-													/>
+												<Input
+													id="precio-nuevo"
+													type="number"
+													placeholder="0.00"
+													step="0.01"
+													value={nuevoProducto.precio}
+													onChange={handleNuevoProductoChange('precio')}
+												/>
 												</div>
 												<div className="space-y-2">
 													<Label htmlFor="cantidad-inicial">
 														Cantidad Inicial
 													</Label>
-													<Input
-														id="cantidad-inicial"
-														type="number"
-														placeholder="0"
-														min="0"
-													/>
+												<Input
+													id="cantidad-inicial"
+													type="number"
+													placeholder="0"
+													min="0"
+													value={nuevoProducto.stock}
+													onChange={handleNuevoProductoChange('stock')}
+												/>
 												</div>
 												<div className="space-y-2">
 													<Label htmlFor="categoria">Categoría</Label>
-													<Input
-														id="categoria"
-														placeholder="Categoría"
-													/>
+												<Input
+													id="categoria"
+													placeholder="Categoría"
+													value={nuevoProducto.categoria}
+													onChange={handleNuevoProductoChange('categoria')}
+												/>
 												</div>
 											</div>
 

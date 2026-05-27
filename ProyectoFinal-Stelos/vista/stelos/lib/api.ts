@@ -33,8 +33,18 @@ const jsonHeaders = {
   'Content-Type': 'application/json',
 }
 
+const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL ?? ''
+
+const buildUrl = (path: string) => {
+  if (!apiBaseUrl) {
+    return path
+  }
+
+  return `${apiBaseUrl.replace(/\/$/, '')}${path}`
+}
+
 export async function getProductos() {
-  const response = await fetch('/api/Productos')
+  const response = await fetch(buildUrl('/api/Productos'))
   if (!response.ok) {
     throw new Error('No se pudo cargar productos')
   }
@@ -42,7 +52,7 @@ export async function getProductos() {
 }
 
 export async function createProducto(dto: ProductoDto) {
-  const response = await fetch('/api/Productos', {
+  const response = await fetch(buildUrl('/api/Productos'), {
     method: 'POST',
     headers: jsonHeaders,
     body: JSON.stringify(dto),
@@ -56,7 +66,7 @@ export async function createProducto(dto: ProductoDto) {
 }
 
 export async function getUsuarios() {
-  const response = await fetch('/api/Usuarios')
+  const response = await fetch(buildUrl('/api/Usuarios'))
   if (!response.ok) {
     throw new Error('No se pudo cargar usuarios')
   }
@@ -64,7 +74,7 @@ export async function getUsuarios() {
 }
 
 export async function createUsuario(dto: UsuarioDto) {
-  const response = await fetch('/api/Usuarios', {
+  const response = await fetch(buildUrl('/api/Usuarios'), {
     method: 'POST',
     headers: jsonHeaders,
     body: JSON.stringify(dto),
@@ -78,7 +88,7 @@ export async function createUsuario(dto: UsuarioDto) {
 }
 
 export async function createVenta(dto: VentaDto) {
-  const response = await fetch('/api/Ventas', {
+  const response = await fetch(buildUrl('/api/Ventas'), {
     method: 'POST',
     headers: jsonHeaders,
     body: JSON.stringify(dto),
@@ -92,7 +102,7 @@ export async function createVenta(dto: VentaDto) {
 }
 
 export async function createDetalleVenta(dto: DetalleVentaDto) {
-  const response = await fetch('/api/Detalledeventas', {
+  const response = await fetch(buildUrl('/api/Detalledeventas'), {
     method: 'POST',
     headers: jsonHeaders,
     body: JSON.stringify(dto),

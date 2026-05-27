@@ -54,21 +54,6 @@ export default function DashboardPage() {
 				</aside>
 				<main className="flex-1 overflow-y-auto p-6">
 					<div className="mx-auto max-w-7xl space-y-6">
-						<Card>
-							<CardHeader>
-								<CardTitle>Panel limpio</CardTitle>
-								<CardDescription>
-									Se eliminaron métricas y registros mockeados. Conecta el
-									backend para cargar datos reales.
-								</CardDescription>
-							</CardHeader>
-							<CardContent>
-								<p className="text-sm text-muted-foreground">
-									Este dashboard sólo conserva accesos a los módulos.
-								</p>
-							</CardContent>
-						</Card>
-
 						<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
 							{modules.map((module) => {
 								const Icon = module.icon

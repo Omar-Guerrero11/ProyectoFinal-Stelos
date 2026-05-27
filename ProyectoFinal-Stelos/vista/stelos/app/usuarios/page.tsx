@@ -38,10 +38,60 @@ import {
 } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Shield, UserPlus, Users } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { createUsuario, getUsuarios } from '@/lib/api'
+
+type Usuario = {
+	id: number
+	nombre: string
+	email: string
+	rol: string
+}
 
 export default function UsuariosPage() {
 	const [openNewUser, setOpenNewUser] = useState(false)
+	const [usuarios, setUsuarios] = useState<Usuario[]>([])
+	const [loadingUsuarios, setLoadingUsuarios] = useState(true)
+	const [nuevoUsuario, setNuevoUsuario] = useState({
+		nombre: '',
+		email: '',
+		rol: '',
+	})
+
+	useEffect(() => {
+		const loadUsuarios = async () => {
+			try {
+				const data = await getUsuarios()
+				setUsuarios(data)
+			} finally {
+				setLoadingUsuarios(false)
+			}
+		}
+
+		loadUsuarios()
+	}, [])
+
+	const handleNuevoUsuarioChange =
+		(field: keyof typeof nuevoUsuario) =>
+		(e: React.ChangeEvent<HTMLInputElement>) => {
+			setNuevoUsuario((prev) => ({
+				...prev,
+				[field]: e.target.value,
+			}))
+		}
+
+	const handleCreateUsuario = async () => {
+		const payload = {
+			nombre: nuevoUsuario.nombre.trim(),
+			email: nuevoUsuario.email.trim(),
+			rol: nuevoUsuario.rol,
+		}
+
+		const created = await createUsuario(payload)
+		setUsuarios((prev) => [created, ...prev])
+		setNuevoUsuario({ nombre: '', email: '', rol: '' })
+		setOpenNewUser(false)
+	}
 
 	return (
 		<div className="flex h-screen flex-col">
@@ -108,6 +158,8 @@ export default function UsuariosPage() {
 															<Input
 																id="nuevo-nombre"
 																placeholder="Nombre del usuario"
+														value={nuevoUsuario.nombre}
+														onChange={handleNuevoUsuarioChange('nombre')}
 															/>
 														</div>
 														<div className="space-y-2">
@@ -118,12 +170,22 @@ export default function UsuariosPage() {
 																id="nuevo-email"
 																type="email"
 																placeholder="correo@dominio.com"
+														value={nuevoUsuario.email}
+														onChange={handleNuevoUsuarioChange('email')}
 															/>
 														</div>
 
 														<div className="space-y-2">
 															<Label htmlFor="nuevo-rol">Rol</Label>
-															<Select>
+												<Select
+													value={nuevoUsuario.rol}
+													onValueChange={(value) =>
+														setNuevoUsuario((prev) => ({
+															...prev,
+															rol: value,
+														}))
+													}
+												>
 																<SelectTrigger id="nuevo-rol">
 																	<SelectValue placeholder="Seleccione un rol" />
 																</SelectTrigger>
@@ -143,7 +205,7 @@ export default function UsuariosPage() {
 														>
 															Cancelar
 														</Button>
-														<Button onClick={() => setOpenNewUser(false)}>
+													<Button onClick={handleCreateUsuario}>
 															Guardar
 														</Button>
 													</DialogFooter>
@@ -162,16 +224,38 @@ export default function UsuariosPage() {
 														<TableHead>Acciones</TableHead>
 													</TableRow>
 												</TableHeader>
-												<TableBody>
-													<TableRow>
-														<TableCell
-															colSpan={4}
-															className="py-8 text-center text-muted-foreground"
-														>
-															Sin usuarios cargados desde backend
-														</TableCell>
-													</TableRow>
-												</TableBody>
+													<TableBody>
+														{loadingUsuarios ? (
+															<TableRow>
+																<TableCell
+																	colSpan={4}
+																	className="py-8 text-center text-muted-foreground"
+																>
+																	Cargando usuarios...
+																</TableCell>
+															</TableRow>
+														) : usuarios.length === 0 ? (
+															<TableRow>
+																<TableCell
+																	colSpan={4}
+																	className="py-8 text-center text-muted-foreground"
+																>
+																	Sin usuarios cargados desde backend
+																</TableCell>
+															</TableRow>
+														) : (
+															usuarios.map((usuario) => (
+																<TableRow key={usuario.id}>
+																	<TableCell className="font-medium">
+																		{usuario.nombre}
+																	</TableCell>
+																	<TableCell>{usuario.email}</TableCell>
+																	<TableCell>{usuario.rol}</TableCell>
+																	<TableCell></TableCell>
+																</TableRow>
+															))
+														)}
+													</TableBody>
 											</Table>
 										</div>
 									</CardContent>
