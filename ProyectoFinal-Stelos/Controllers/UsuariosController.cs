@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProyectoFinal_Stelos.Data;
 using ProyectoFinal_Stelos.Models;
+using ProyectoFinal_Stelos.Dtos;
 
 namespace ProyectoFinal_Stelos.Controllers
 {
@@ -34,28 +35,41 @@ namespace ProyectoFinal_Stelos.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
+        public async Task<ActionResult<Usuario>> PostUsuario(
+            UsuarioDto dto)
         {
+            var usuario = new Usuario
+            {
+                Nombre = dto.Nombre,
+                Email = dto.Email,
+                Rol = dto.Rol
+            };
+
             _context.Usuarios.Add(usuario);
+
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetUsuario), new { id = usuario.Id }, usuario);
+            return CreatedAtAction(
+                nameof(GetUsuario),
+                new { id = usuario.Id },
+                usuario
+            );
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
+        public async Task<IActionResult> PutUsuario(
+            int id,
+            UsuarioDto dto)
         {
-            if (id != usuario.Id)
-                return BadRequest();
+            var usuario = await _context.Usuarios
+                .FindAsync(id);
 
-            var usuarioExistente = await _context.Usuarios.FindAsync(id);
-
-            if (usuarioExistente == null)
+            if (usuario == null)
                 return NotFound();
 
-            usuarioExistente.Nombre = usuario.Nombre;
-            usuarioExistente.Email = usuario.Email;
-            usuarioExistente.Rol = usuario.Rol;
+            usuario.Nombre = dto.Nombre;
+            usuario.Email = dto.Email;
+            usuario.Rol = dto.Rol;
 
             await _context.SaveChangesAsync();
 
@@ -65,12 +79,14 @@ namespace ProyectoFinal_Stelos.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUsuario(int id)
         {
-            var usuario = await _context.Usuarios.FindAsync(id);
+            var usuario = await _context.Usuarios
+                .FindAsync(id);
 
             if (usuario == null)
                 return NotFound();
 
             _context.Usuarios.Remove(usuario);
+
             await _context.SaveChangesAsync();
 
             return NoContent();
