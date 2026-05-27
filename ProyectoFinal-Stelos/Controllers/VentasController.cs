@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProyectoFinal_Stelos.Data;
 using ProyectoFinal_Stelos.Models;
+using ProyectoFinal_Stelos.Dtos;
 
 namespace ProyectoFinal_Stelos.Controllers
 {
@@ -38,29 +39,42 @@ namespace ProyectoFinal_Stelos.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Venta>> PostVenta(Venta venta)
+        public async Task<ActionResult<Venta>> PostVenta(VentaDto dto)
         {
+            var venta = new Venta
+            {
+                Fecha = dto.Fecha,
+                MetodoPago = dto.MetodoPago,
+                Total = dto.Total,
+                Estado = dto.Estado
+            };
+
             _context.Ventas.Add(venta);
+
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetVenta), new { id = venta.Id }, venta);
+            return CreatedAtAction(
+                nameof(GetVenta),
+                new { id = venta.Id },
+                venta
+            );
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutVenta(int id, Venta venta)
+        public async Task<IActionResult> PutVenta(
+            int id,
+            VentaDto dto)
         {
-            if (id != venta.Id)
-                return BadRequest();
+            var venta = await _context.Ventas
+                .FindAsync(id);
 
-            var ventaExistente = await _context.Ventas.FindAsync(id);
-
-            if (ventaExistente == null)
+            if (venta == null)
                 return NotFound();
 
-            ventaExistente.Fecha = venta.Fecha;
-            ventaExistente.MetodoPago = venta.MetodoPago;
-            ventaExistente.Total = venta.Total;
-            ventaExistente.Estado = venta.Estado;
+            venta.Fecha = dto.Fecha;
+            venta.MetodoPago = dto.MetodoPago;
+            venta.Total = dto.Total;
+            venta.Estado = dto.Estado;
 
             await _context.SaveChangesAsync();
 
@@ -70,12 +84,14 @@ namespace ProyectoFinal_Stelos.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteVenta(int id)
         {
-            var venta = await _context.Ventas.FindAsync(id);
+            var venta = await _context.Ventas
+                .FindAsync(id);
 
             if (venta == null)
                 return NotFound();
 
             _context.Ventas.Remove(venta);
+
             await _context.SaveChangesAsync();
 
             return NoContent();
