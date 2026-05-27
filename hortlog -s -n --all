@@ -1,0 +1,768 @@
+[33mad3399d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m Remove tracked frontend dependencies
+ node_modules/.bin/uuid                   |  16 [31m-[m
+ node_modules/.bin/uuid.cmd               |  17 [31m--[m
+ node_modules/.bin/uuid.ps1               |  28 [31m--[m
+ node_modules/.package-lock.json          |  20 [31m--[m
+ node_modules/uuid/LICENSE.md             |   9 [31m-[m
+ node_modules/uuid/README.md              | 491 [31m-------------------------------[m
+ node_modules/uuid/dist-node/bin/uuid     |   2 [31m-[m
+ node_modules/uuid/dist-node/index.js     |  14 [31m-[m
+ node_modules/uuid/dist-node/max.js       |   1 [31m-[m
+ node_modules/uuid/dist-node/md5.js       |  11 [31m-[m
+ node_modules/uuid/dist-node/nil.js       |   1 [31m-[m
+ node_modules/uuid/dist-node/parse.js     |   9 [31m-[m
+ node_modules/uuid/dist-node/regex.js     |   1 [31m-[m
+ node_modules/uuid/dist-node/rng.js       |   4 [31m-[m
+ node_modules/uuid/dist-node/sha1.js      |  11 [31m-[m
+ node_modules/uuid/dist-node/stringify.js |  35 [31m---[m
+ node_modules/uuid/dist-node/types.js     |   1 [31m-[m
+ node_modules/uuid/dist-node/uuid-bin.js  |  70 [31m-----[m
+ node_modules/uuid/dist-node/v1.js        |  83 [31m------[m
+ node_modules/uuid/dist-node/v1ToV6.js    |  10 [31m-[m
+ node_modules/uuid/dist-node/v3.js        |   9 [31m-[m
+ node_modules/uuid/dist-node/v35.js       |  39 [31m---[m
+ node_modules/uuid/dist-node/v4.js        |  29 [31m--[m
+ node_modules/uuid/dist-node/v5.js        |   9 [31m-[m
+ node_modules/uuid/dist-node/v6.js        |  20 [31m--[m
+ node_modules/uuid/dist-node/v6ToV1.js    |  10 [31m-[m
+ node_modules/uuid/dist-node/v7.js        |  65 [31m----[m
+ node_modules/uuid/dist-node/validate.js  |   5 [31m-[m
+ node_modules/uuid/dist-node/version.js   |   8 [31m-[m
+ node_modules/uuid/dist/index.d.ts        |  15 [31m-[m
+ node_modules/uuid/dist/index.js          |  14 [31m-[m
+ node_modules/uuid/dist/max.d.ts          |   2 [31m-[m
+ node_modules/uuid/dist/max.js            |   1 [31m-[m
+ node_modules/uuid/dist/md5.d.ts          |   2 [31m-[m
+ node_modules/uuid/dist/md5.js            | 135 [31m---------[m
+ node_modules/uuid/dist/nil.d.ts          |   2 [31m-[m
+ node_modules/uuid/dist/nil.js            |   1 [31m-[m
+ node_modules/uuid/dist/parse.d.ts        |   3 [31m-[m
+ node_modules/uuid/dist/parse.js          |   9 [31m-[m
+ node_modules/uuid/dist/regex.d.ts        |   2 [31m-[m
+ node_modules/uuid/dist/regex.js          |   1 [31m-[m
+ node_modules/uuid/dist/rng.d.ts          |   1 [31m-[m
+ node_modules/uuid/dist/rng.js            |   4 [31m-[m
+ node_modules/uuid/dist/sha1.d.ts         |   2 [31m-[m
+ node_modules/uuid/dist/sha1.js           |  70 [31m-----[m
+ node_modules/uuid/dist/stringify.d.ts    |   3 [31m-[m
+ node_modules/uuid/dist/stringify.js      |  35 [31m---[m
+ node_modules/uuid/dist/types.d.ts        |  22 [31m--[m
+ node_modules/uuid/dist/types.js          |   1 [31m-[m
+ node_modules/uuid/dist/uuid-bin.d.ts     |   1 [31m-[m
+ node_modules/uuid/dist/uuid-bin.js       |  70 [31m-----[m
+ node_modules/uuid/dist/v1.d.ts           |  11 [31m-[m
+ node_modules/uuid/dist/v1.js             |  83 [31m------[m
+ node_modules/uuid/dist/v1ToV6.d.ts       |   3 [31m-[m
+ node_modules/uuid/dist/v1ToV6.js         |  10 [31m-[m
+ node_modules/uuid/dist/v3.d.ts           |   9 [31m-[m
+ node_modules/uuid/dist/v3.js             |   9 [31m-[m
+ node_modules/uuid/dist/v35.d.ts          |   7 [31m-[m
+ node_modules/uuid/dist/v35.js            |  39 [31m---[m
+ node_modules/uuid/dist/v4.d.ts           |   4 [31m-[m
+ node_modules/uuid/dist/v4.js             |  29 [31m--[m
+ node_modules/uuid/dist/v5.d.ts           |   9 [31m-[m
+ node_modules/uuid/dist/v5.js             |   9 [31m-[m
+ node_modules/uuid/dist/v6.d.ts           |   4 [31m-[m
+ node_modules/uuid/dist/v6.js             |  20 [31m--[m
+ node_modules/uuid/dist/v6ToV1.d.ts       |   2 [31m-[m
+ node_modules/uuid/dist/v6ToV1.js         |  10 [31m-[m
+ node_modules/uuid/dist/v7.d.ts           |   9 [31m-[m
+ node_modules/uuid/dist/v7.js             |  65 [31m----[m
+ node_modules/uuid/dist/validate.d.ts     |   2 [31m-[m
+ node_modules/uuid/dist/validate.js       |   5 [31m-[m
+ node_modules/uuid/dist/version.d.ts      |   2 [31m-[m
+ node_modules/uuid/dist/version.js        |   8 [31m-[m
+ node_modules/uuid/package.json           | 110 [31m-------[m
+ package-lock.json                        |  25 [31m--[m
+ package.json                             |   5 [31m-[m
+ 76 files changed, 1913 deletions(-)
+[33m261b25b[m Merge branch 'develop' of github.com:Omar-Guerrero11/ProyectoFinal-Stelos into develop
+[33mbd005ae[m Change reportes feature
+ .../Controllers/ReportesController.cs              |  65 [32m++++++++++++[m
+ .../vista/stelos/app/inventario/page.tsx           |  19 [31m----[m
+ .../vista/stelos/app/reportes/page.tsx             | 116 [32m++++++++[m[31m-------------[m
+ ProyectoFinal-Stelos/vista/stelos/lib/api.ts       |   8 [32m++[m
+ 4 files changed, 116 insertions(+), 92 deletions(-)
+[33m7f54bfd[m Correcion de errores en carrito en el apartado de ventas
+ ProyectoFinal-Stelos/Program.cs                    |  18 [32m+[m
+ .../vista/stelos/app/ventas/page.tsx               |   4 [32m+[m[31m-[m
+ node_modules/.bin/uuid                             |  16 [32m+[m
+ node_modules/.bin/uuid.cmd                         |  17 [32m+[m
+ node_modules/.bin/uuid.ps1                         |  28 [32m++[m
+ node_modules/.package-lock.json                    |  20 [32m+[m
+ node_modules/uuid/LICENSE.md                       |   9 [32m+[m
+ node_modules/uuid/README.md                        | 491 [32m+++++++++++++++++++++[m
+ node_modules/uuid/dist-node/bin/uuid               |   2 [32m+[m
+ node_modules/uuid/dist-node/index.js               |  14 [32m+[m
+ node_modules/uuid/dist-node/max.js                 |   1 [32m+[m
+ node_modules/uuid/dist-node/md5.js                 |  11 [32m+[m
+ node_modules/uuid/dist-node/nil.js                 |   1 [32m+[m
+ node_modules/uuid/dist-node/parse.js               |   9 [32m+[m
+ node_modules/uuid/dist-node/regex.js               |   1 [32m+[m
+ node_modules/uuid/dist-node/rng.js                 |   4 [32m+[m
+ node_modules/uuid/dist-node/sha1.js                |  11 [32m+[m
+ node_modules/uuid/dist-node/stringify.js           |  35 [32m++[m
+ node_modules/uuid/dist-node/types.js               |   1 [32m+[m
+ node_modules/uuid/dist-node/uuid-bin.js            |  70 [32m+++[m
+ node_modules/uuid/dist-node/v1.js                  |  83 [32m++++[m
+ node_modules/uuid/dist-node/v1ToV6.js              |  10 [32m+[m
+ node_modules/uuid/dist-node/v3.js                  |   9 [32m+[m
+ node_modules/uuid/dist-node/v35.js                 |  39 [32m++[m
+ node_modules/uuid/dist-node/v4.js                  |  29 [32m++[m
+ node_modules/uuid/dist-node/v5.js                  |   9 [32m+[m
+ node_modules/uuid/dist-node/v6.js                  |  20 [32m+[m
+ node_modules/uuid/dist-node/v6ToV1.js              |  10 [32m+[m
+ node_modules/uuid/dist-node/v7.js                  |  65 [32m+++[m
+ node_modules/uuid/dist-node/validate.js            |   5 [32m+[m
+ node_modules/uuid/dist-node/version.js             |   8 [32m+[m
+ node_modules/uuid/dist/index.d.ts                  |  15 [32m+[m
+ node_modules/uuid/dist/index.js                    |  14 [32m+[m
+ node_modules/uuid/dist/max.d.ts                    |   2 [32m+[m
+ node_modules/uuid/dist/max.js                      |   1 [32m+[m
+ node_modules/uuid/dist/md5.d.ts                    |   2 [32m+[m
+ node_modules/uuid/dist/md5.js                      | 135 [32m++++++[m
+ node_modules/uuid/dist/nil.d.ts                    |   2 [32m+[m
+ node_modules/uuid/dist/nil.js                      |   1 [32m+[m
+ node_modules/uuid/dist/parse.d.ts                  |   3 [32m+[m
+ node_modules/uuid/dist/parse.js                    |   9 [32m+[m
+ node_modules/uuid/dist/regex.d.ts                  |   2 [32m+[m
+ node_modules/uuid/dist/regex.js                    |   1 [32m+[m
+ node_modules/uuid/dist/rng.d.ts                    |   1 [32m+[m
+ node_modules/uuid/dist/rng.js                      |   4 [32m+[m
+ node_modules/uuid/dist/sha1.d.ts                   |   2 [32m+[m
+ node_modules/uuid/dist/sha1.js                     |  70 [32m+++[m
+ node_modules/uuid/dist/stringify.d.ts              |   3 [32m+[m
+ node_modules/uuid/dist/stringify.js                |  35 [32m++[m
+ node_modules/uuid/dist/types.d.ts                  |  22 [32m+[m
+ node_modules/uuid/dist/types.js                    |   1 [32m+[m
+ node_modules/uuid/dist/uuid-bin.d.ts               |   1 [32m+[m
+ node_modules/uuid/dist/uuid-bin.js                 |  70 [32m+++[m
+ node_modules/uuid/dist/v1.d.ts                     |  11 [32m+[m
+ node_modules/uuid/dist/v1.js                       |  83 [32m++++[m
+ node_modules/uuid/dist/v1ToV6.d.ts                 |   3 [32m+[m
+ node_modules/uuid/dist/v1ToV6.js                   |  10 [32m+[m
+ node_modules/uuid/dist/v3.d.ts                     |   9 [32m+[m
+ node_modules/uuid/dist/v3.js                       |   9 [32m+[m
+ node_modules/uuid/dist/v35.d.ts                    |   7 [32m+[m
+ node_modules/uuid/dist/v35.js                      |  39 [32m++[m
+ node_modules/uuid/dist/v4.d.ts                     |   4 [32m+[m
+ node_modules/uuid/dist/v4.js                       |  29 [32m++[m
+ node_modules/uuid/dist/v5.d.ts                     |   9 [32m+[m
+ node_modules/uuid/dist/v5.js                       |   9 [32m+[m
+ node_modules/uuid/dist/v6.d.ts                     |   4 [32m+[m
+ node_modules/uuid/dist/v6.js                       |  20 [32m+[m
+ node_modules/uuid/dist/v6ToV1.d.ts                 |   2 [32m+[m
+ node_modules/uuid/dist/v6ToV1.js                   |  10 [32m+[m
+ node_modules/uuid/dist/v7.d.ts                     |   9 [32m+[m
+ node_modules/uuid/dist/v7.js                       |  65 [32m+++[m
+ node_modules/uuid/dist/validate.d.ts               |   2 [32m+[m
+ node_modules/uuid/dist/validate.js                 |   5 [32m+[m
+ node_modules/uuid/dist/version.d.ts                |   2 [32m+[m
+ node_modules/uuid/dist/version.js                  |   8 [32m+[m
+ node_modules/uuid/package.json                     | 110 [32m+++++[m
+ package-lock.json                                  |  25 [32m++[m
+ package.json                                       |   5 [32m+[m
+ 78 files changed, 1933 insertions(+), 2 deletions(-)
+[33m0edc0ee[m Merge branch 'develop' of github.com:Omar-Guerrero11/ProyectoFinal-Stelos into develop
+[33md229a97[m Implement api into frontend
+ .../vista/stelos/app/inventario/page.tsx           | 172 [32m++++++++++++[m[31m---[m
+ ProyectoFinal-Stelos/vista/stelos/app/page.tsx     |  15 [31m--[m
+ .../vista/stelos/app/usuarios/page.tsx             | 110 [32m+++++++[m[31m--[m
+ .../vista/stelos/app/ventas/page.tsx               | 245 [32m++++++++++++++++++[m[31m---[m
+ ProyectoFinal-Stelos/vista/stelos/lib/api.ts       |  22 [32m+[m[31m-[m
+ 5 files changed, 467 insertions(+), 97 deletions(-)
+[33mac071f5[m Errores en GetDetalleVenta corregidos
+ ProyectoFinal-Stelos/Controllers/DetalleventasController.cs |  4 [32m+[m[31m---[m
+ ProyectoFinal-Stelos/Program.cs                             | 12 [32m+++++++++[m[31m---[m
+ 2 files changed, 10 insertions(+), 6 deletions(-)
+[33m2a5a717[m fetch methods
+ ProyectoFinal-Stelos/vista/stelos/app/globals.css  |   6 [32m+[m[31m-[m
+ .../vista/stelos/components/ui/select.tsx          |   8 [32m+[m[31m-[m
+ ProyectoFinal-Stelos/vista/stelos/lib/api.ts       | 106 [32m+++++++++++++++++++++[m
+ .../vista/stelos/postcss.config.cjs                |   2 [32m+[m[31m-[m
+ .../vista/stelos/tailwind.config.cjs               |   2 [32m+[m[31m-[m
+ ProyectoFinal-Stelos/vista/stelos/tsconfig.json    |   3 [32m+[m[31m-[m
+ 6 files changed, 116 insertions(+), 11 deletions(-)
+[33mbe4241e[m Modificacion controller UsuariosController. Implementar UsuariosDtos
+ .../Controllers/UsuariosController.cs              | 40 [32m+++++++++++++++[m[31m-------[m
+ 1 file changed, 28 insertions(+), 12 deletions(-)
+[33md4d4f5b[m Modificacion controller VentasController. Implementar VentasController
+ .../Controllers/VentasController.cs                | 42 [32m+++++++++++++++[m[31m-------[m
+ 1 file changed, 29 insertions(+), 13 deletions(-)
+[33mde79a04[m Modificacion controller DetalleVentasController. Implementar DetalleVentaDto
+ ProyectoFinal-Stelos/.gitignore                    | 34 [32m+[m[31m----------[m
+ .../Controllers/DetalleventasController.cs         | 70 [32m+++++++++++++[m[31m---------[m
+ 2 files changed, 44 insertions(+), 60 deletions(-)
+[33mda8df0a[m Agregar controlador CRUD de usuarios
+ ProyectoFinal-Stelos/Controllers/UsuarioController.cs | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+[33mccd73d4[m Revert "Agregar controlador CRUD de detalle de ventas"
+ .../Controllers/DetalledeventasController.cs       |  0
+ .../Controllers/UsuariosController.cs              | 79 [32m++++++++++++++++++++++[m
+ 2 files changed, 79 insertions(+)
+[33mee2705d[m Agregar controlador CRUD de usuarios
+ ProyectoFinal-Stelos/Controllers/UsuariosController.cs | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+[33me795c5e[m Agregar contenido al controlador CRUD de detalle de ventas
+ .../Controllers/DetalleventasController.cs         | 104 [32m+++++++++++++++++++++[m
+ 1 file changed, 104 insertions(+)
+[33m185b361[m Agregar controlador CRUD de detalle de ventas
+ ProyectoFinal-Stelos/Controllers/DetalledeventasController.cs | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+[33mcfc9b74[m Agregar controlador CRUD de ventas
+ .../Controllers/VentasController.cs                | 84 [32m++++++++++++++++++++++[m
+ 1 file changed, 84 insertions(+)
+[33m9713619[m Merge branch 'feature/conexion-sql' into develop
+[33m0d37fad[m[33m ([m[1;31morigin/feature/conexion-sql[m[33m)[m Stop tracking generated files
+ .../bin/Debug/net9.0/Azure.Core.dll                |  Bin [31m400936[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/Azure.Identity.dll            |  Bin [31m342960[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/Humanizer.dll                 |  Bin [31m355944[m -> [32m0[m bytes
+ .../Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll  |  Bin [31m194896[m -> [32m0[m bytes
+ .../Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll |  Bin [31m19072[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/Microsoft.Build.Locator.dll   |  Bin [31m44576[m -> [32m0[m bytes
+ .../Microsoft.CodeAnalysis.CSharp.Workspaces.dll   |  Bin [31m883472[m -> [32m0[m bytes
+ .../Debug/net9.0/Microsoft.CodeAnalysis.CSharp.dll |  Bin [31m6501536[m -> [32m0[m bytes
+ ...t.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll |  Bin [31m86688[m -> [32m0[m bytes
+ .../Microsoft.CodeAnalysis.Workspaces.MSBuild.dll  |  Bin [31m72864[m -> [32m0[m bytes
+ .../net9.0/Microsoft.CodeAnalysis.Workspaces.dll   |  Bin [31m3852448[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/Microsoft.CodeAnalysis.dll    |  Bin [31m2895520[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/Microsoft.Data.SqlClient.dll  |  Bin [31m275984[m -> [32m0[m bytes
+ .../Microsoft.EntityFrameworkCore.Abstractions.dll |  Bin [31m34856[m -> [32m0[m bytes
+ .../Microsoft.EntityFrameworkCore.Design.dll       |  Bin [31m623160[m -> [32m0[m bytes
+ .../Microsoft.EntityFrameworkCore.Relational.dll   |  Bin [31m2137136[m -> [32m0[m bytes
+ .../Microsoft.EntityFrameworkCore.SqlServer.dll    |  Bin [31m610872[m -> [32m0[m bytes
+ .../Debug/net9.0/Microsoft.EntityFrameworkCore.dll |  Bin [31m2683432[m -> [32m0[m bytes
+ .../Microsoft.Extensions.DependencyModel.dll       |  Bin [31m85272[m -> [32m0[m bytes
+ .../Microsoft.Identity.Client.Extensions.Msal.dll  |  Bin [31m66592[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/Microsoft.Identity.Client.dll |  Bin [31m1005600[m -> [32m0[m bytes
+ .../Microsoft.IdentityModel.Abstractions.dll       |  Bin [31m18968[m -> [32m0[m bytes
+ .../Microsoft.IdentityModel.JsonWebTokens.dll      |  Bin [31m112576[m -> [32m0[m bytes
+ .../net9.0/Microsoft.IdentityModel.Logging.dll     |  Bin [31m36792[m -> [32m0[m bytes
+ ...osoft.IdentityModel.Protocols.OpenIdConnect.dll |  Bin [31m114104[m -> [32m0[m bytes
+ .../net9.0/Microsoft.IdentityModel.Protocols.dll   |  Bin [31m39864[m -> [32m0[m bytes
+ .../net9.0/Microsoft.IdentityModel.Tokens.dll      |  Bin [31m993312[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/Microsoft.OpenApi.dll         |  Bin [31m239024[m -> [32m0[m bytes
+ .../Debug/net9.0/Microsoft.SqlServer.Server.dll    |  Bin [31m23976[m -> [32m0[m bytes
+ .../Debug/net9.0/Microsoft.Win32.SystemEvents.dll  |  Bin [31m26224[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/Mono.TextTemplating.dll       |  Bin [31m177664[m -> [32m0[m bytes
+ .../Debug/net9.0/ProyectoFinal-Stelos.deps.json    | 1160 [31m-----[m
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.dll      |  Bin [31m38400[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.exe      |  Bin [31m156672[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.pdb      |  Bin [31m29812[m -> [32m0[m bytes
+ .../net9.0/ProyectoFinal-Stelos.runtimeconfig.json |   20 [31m-[m
+ ...ectoFinal-Stelos.staticwebassets.endpoints.json |    5 [31m-[m
+ .../bin/Debug/net9.0/Scalar.AspNetCore.dll         |  Bin [31m1389568[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/System.ClientModel.dll        |  Bin [31m28608[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/System.CodeDom.dll            |  Bin [31m184944[m -> [32m0[m bytes
+ .../net9.0/System.Composition.AttributedModel.dll  |  Bin [31m20096[m -> [32m0[m bytes
+ .../Debug/net9.0/System.Composition.Convention.dll |  Bin [31m53880[m -> [32m0[m bytes
+ .../Debug/net9.0/System.Composition.Hosting.dll    |  Bin [31m55440[m -> [32m0[m bytes
+ .../Debug/net9.0/System.Composition.Runtime.dll    |  Bin [31m26240[m -> [32m0[m bytes
+ .../Debug/net9.0/System.Composition.TypedParts.dll |  Bin [31m65168[m -> [32m0[m bytes
+ .../System.Configuration.ConfigurationManager.dll  |  Bin [31m396424[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/System.Drawing.Common.dll     |  Bin [31m175216[m -> [32m0[m bytes
+ .../net9.0/System.IdentityModel.Tokens.Jwt.dll     |  Bin [31m77344[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/System.Memory.Data.dll        |  Bin [31m21368[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/System.Runtime.Caching.dll    |  Bin [31m89200[m -> [32m0[m bytes
+ .../System.Security.Cryptography.ProtectedData.dll |  Bin [31m20592[m -> [32m0[m bytes
+ .../Debug/net9.0/System.Security.Permissions.dll   |  Bin [31m104048[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/System.Windows.Extensions.dll |  Bin [31m25712[m -> [32m0[m bytes
+ .../bin/Debug/net9.0/appsettings.Development.json  |    8 [31m-[m
+ .../bin/Debug/net9.0/appsettings.json              |   12 [31m-[m
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18080[m -> [32m0[m bytes
+ .../cs/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m421552[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17568[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m48304[m -> [32m0[m bytes
+ .../net9.0/cs/Microsoft.CodeAnalysis.resources.dll |  Bin [31m46752[m -> [32m0[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18080[m -> [32m0[m bytes
+ .../de/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m450208[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17568[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m49824[m -> [32m0[m bytes
+ .../net9.0/de/Microsoft.CodeAnalysis.resources.dll |  Bin [31m48304[m -> [32m0[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18080[m -> [32m0[m bytes
+ .../es/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m440480[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17584[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m49824[m -> [32m0[m bytes
+ .../net9.0/es/Microsoft.CodeAnalysis.resources.dll |  Bin [31m48304[m -> [32m0[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18192[m -> [32m0[m bytes
+ .../fr/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m451232[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17680[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m50848[m -> [32m0[m bytes
+ .../net9.0/fr/Microsoft.CodeAnalysis.resources.dll |  Bin [31m48800[m -> [32m0[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18096[m -> [32m0[m bytes
+ .../it/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m447240[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17584[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m50336[m -> [32m0[m bytes
+ .../net9.0/it/Microsoft.CodeAnalysis.resources.dll |  Bin [31m48800[m -> [32m0[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18096[m -> [32m0[m bytes
+ .../ja/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m492704[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17584[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m53408[m -> [32m0[m bytes
+ .../net9.0/ja/Microsoft.CodeAnalysis.resources.dll |  Bin [31m51872[m -> [32m0[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18192[m -> [32m0[m bytes
+ .../ko/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m452272[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17568[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m50336[m -> [32m0[m bytes
+ .../net9.0/ko/Microsoft.CodeAnalysis.resources.dll |  Bin [31m48800[m -> [32m0[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18208[m -> [32m0[m bytes
+ .../pl/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m453280[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17568[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m49840[m -> [32m0[m bytes
+ .../net9.0/pl/Microsoft.CodeAnalysis.resources.dll |  Bin [31m48816[m -> [32m0[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18096[m -> [32m0[m bytes
+ .../Microsoft.CodeAnalysis.CSharp.resources.dll    |  Bin [31m432800[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17568[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m49312[m -> [32m0[m bytes
+ .../pt-BR/Microsoft.CodeAnalysis.resources.dll     |  Bin [31m47264[m -> [32m0[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18704[m -> [32m0[m bytes
+ .../ru/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m595104[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17568[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m57504[m -> [32m0[m bytes
+ .../net9.0/ru/Microsoft.CodeAnalysis.resources.dll |  Bin [31m58528[m -> [32m0[m bytes
+ .../unix/lib/net6.0/Microsoft.Data.SqlClient.dll   |  Bin [31m1559184[m -> [32m0[m bytes
+ .../unix/lib/net6.0/System.Drawing.Common.dll      |  Bin [31m427112[m -> [32m0[m bytes
+ .../native/Microsoft.Data.SqlClient.SNI.dll        |  Bin [31m381984[m -> [32m0[m bytes
+ .../native/Microsoft.Data.SqlClient.SNI.dll        |  Bin [31m491552[m -> [32m0[m bytes
+ .../native/Microsoft.Data.SqlClient.SNI.dll        |  Bin [31m504872[m -> [32m0[m bytes
+ .../native/Microsoft.Data.SqlClient.SNI.dll        |  Bin [31m414248[m -> [32m0[m bytes
+ .../win/lib/net6.0/Microsoft.Data.SqlClient.dll    |  Bin [31m1643168[m -> [32m0[m bytes
+ .../lib/net6.0/Microsoft.Win32.SystemEvents.dll    |  Bin [31m53352[m -> [32m0[m bytes
+ .../win/lib/net6.0/System.Drawing.Common.dll       |  Bin [31m454248[m -> [32m0[m bytes
+ .../win/lib/net6.0/System.Runtime.Caching.dll      |  Bin [31m91240[m -> [32m0[m bytes
+ .../System.Security.Cryptography.ProtectedData.dll |  Bin [31m33904[m -> [32m0[m bytes
+ .../win/lib/net6.0/System.Windows.Extensions.dll   |  Bin [31m43112[m -> [32m0[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18192[m -> [32m0[m bytes
+ .../tr/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m429216[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17584[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m48288[m -> [32m0[m bytes
+ .../net9.0/tr/Microsoft.CodeAnalysis.resources.dll |  Bin [31m46752[m -> [32m0[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18080[m -> [32m0[m bytes
+ .../Microsoft.CodeAnalysis.CSharp.resources.dll    |  Bin [31m382128[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17568[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m46240[m -> [32m0[m bytes
+ .../zh-Hans/Microsoft.CodeAnalysis.resources.dll   |  Bin [31m43680[m -> [32m0[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m18192[m -> [32m0[m bytes
+ .../Microsoft.CodeAnalysis.CSharp.resources.dll    |  Bin [31m381600[m -> [32m0[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m17568[m -> [32m0[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m46256[m -> [32m0[m bytes
+ .../zh-Hant/Microsoft.CodeAnalysis.resources.dll   |  Bin [31m44192[m -> [32m0[m bytes
+ .../.NETCoreApp,Version=v9.0.AssemblyAttributes.cs |    4 [31m-[m
+ .../obj/Debug/net9.0/ApiEndpoints.json             |   23 [31m-[m
+ .../obj/Debug/net9.0/Proyecto.87EEAFF6.Up2Date     |    0
+ .../net9.0/ProyectoFinal-Stelos.AssemblyInfo.cs    |   23 [31m-[m
+ .../ProyectoFinal-Stelos.AssemblyInfoInputs.cache  |    1 [31m-[m
+ ...telos.GeneratedMSBuildEditorConfig.editorconfig |   29 [31m-[m
+ .../net9.0/ProyectoFinal-Stelos.GlobalUsings.g.cs  |   17 [31m-[m
+ ...al-Stelos.MvcApplicationPartsAssemblyInfo.cache |    0
+ ...Final-Stelos.MvcApplicationPartsAssemblyInfo.cs |   16 [31m-[m
+ .../Debug/net9.0/ProyectoFinal-Stelos.assets.cache |  Bin [31m65743[m -> [32m0[m bytes
+ ...ectoFinal-Stelos.csproj.AssemblyReference.cache |  Bin [31m14772[m -> [32m0[m bytes
+ ...yectoFinal-Stelos.csproj.BuildWithSkipAnalyzers |    0
+ ...ectoFinal-Stelos.csproj.CoreCompileInputs.cache |    1 [31m-[m
+ ...royectoFinal-Stelos.csproj.FileListAbsolute.txt |  316 [31m--[m
+ .../obj/Debug/net9.0/ProyectoFinal-Stelos.dll      |  Bin [31m38400[m -> [32m0[m bytes
+ .../ProyectoFinal-Stelos.genruntimeconfig.cache    |    1 [31m-[m
+ .../obj/Debug/net9.0/ProyectoFinal-Stelos.pdb      |  Bin [31m29812[m -> [32m0[m bytes
+ ProyectoFinal-Stelos/obj/Debug/net9.0/apphost.exe  |  Bin [31m156672[m -> [32m0[m bytes
+ .../obj/Debug/net9.0/ref/ProyectoFinal-Stelos.dll  |  Bin [31m13312[m -> [32m0[m bytes
+ .../Debug/net9.0/refint/ProyectoFinal-Stelos.dll   |  Bin [31m13312[m -> [32m0[m bytes
+ .../obj/Debug/net9.0/rjsmcshtml.dswa.cache.json    |    1 [31m-[m
+ .../obj/Debug/net9.0/rjsmrazor.dswa.cache.json     |    1 [31m-[m
+ .../obj/Debug/net9.0/rpswa.dswa.cache.json         |    1 [31m-[m
+ .../net9.0/staticwebassets.build.endpoints.json    |    5 [31m-[m
+ .../obj/Debug/net9.0/staticwebassets.build.json    |   12 [31m-[m
+ .../Debug/net9.0/staticwebassets.build.json.cache  |    1 [31m-[m
+ .../staticwebassets.references.upToDateCheck.txt   |    0
+ .../obj/Debug/net9.0/staticwebassets.removed.txt   |    0
+ .../obj/Debug/net9.0/swae.build.ex.cache           |    0
+ .../ProyectoFinal-Stelos.csproj.nuget.dgspec.json  |  125 [31m-[m
+ .../obj/ProyectoFinal-Stelos.csproj.nuget.g.props  |   25 [31m-[m
+ .../ProyectoFinal-Stelos.csproj.nuget.g.targets    |   10 [31m-[m
+ ProyectoFinal-Stelos/obj/project.assets.json       | 4935 [31m--------------------[m
+ ProyectoFinal-Stelos/obj/project.nuget.cache       |   95 [31m-[m
+ 166 files changed, 6847 deletions(-)
+[33ma234e42[m fix gitignore
+ ProyectoFinal-Stelos/.gitignore | 34 [32m+++++++++++++++++++++++++++++++++[m[31m-[m
+ 1 file changed, 33 insertions(+), 1 deletion(-)
+[33m8f873ac[m Merge branch 'frontend' into develop
+[33m818880a[m fix gitignore
+ ProyectoFinal-Stelos/.gitignore | 34 [32m+++++++++++++++++++++++++++++++++[m[31m-[m
+ 1 file changed, 33 insertions(+), 1 deletion(-)
+[33m9f11499[m[33m ([m[1;31morigin/frontend[m[33m)[m fix gitignore
+ ProyectoFinal-Stelos/.gitignore | 34 [32m+++++++++++++++++++++++++++++++++[m[31m-[m
+ 1 file changed, 33 insertions(+), 1 deletion(-)
+[33mb21643c[m stop tracking files
+[33m54bd854[m stop track of generated files
+ .../.NETCoreApp,Version=v9.0.AssemblyAttributes.cs |    4 [31m-[m
+ .../obj/Debug/net9.0/ApiEndpoints.json             |   23 [31m-[m
+ .../obj/Debug/net9.0/Proyecto.87EEAFF6.Up2Date     |    0
+ .../net9.0/ProyectoFinal-Stelos.AssemblyInfo.cs    |   23 [31m-[m
+ .../ProyectoFinal-Stelos.AssemblyInfoInputs.cache  |    1 [31m-[m
+ ...telos.GeneratedMSBuildEditorConfig.editorconfig |   29 [31m-[m
+ .../net9.0/ProyectoFinal-Stelos.GlobalUsings.g.cs  |   17 [31m-[m
+ ...al-Stelos.MvcApplicationPartsAssemblyInfo.cache |    0
+ ...Final-Stelos.MvcApplicationPartsAssemblyInfo.cs |   17 [31m-[m
+ .../Debug/net9.0/ProyectoFinal-Stelos.assets.cache |  Bin [31m65743[m -> [32m0[m bytes
+ ...ectoFinal-Stelos.csproj.AssemblyReference.cache |  Bin [31m14772[m -> [32m0[m bytes
+ ...yectoFinal-Stelos.csproj.BuildWithSkipAnalyzers |    0
+ ...ectoFinal-Stelos.csproj.CoreCompileInputs.cache |    1 [31m-[m
+ ...royectoFinal-Stelos.csproj.FileListAbsolute.txt |  317 [31m--[m
+ .../obj/Debug/net9.0/ProyectoFinal-Stelos.dll      |  Bin [31m13824[m -> [32m0[m bytes
+ .../ProyectoFinal-Stelos.genruntimeconfig.cache    |    1 [31m-[m
+ .../obj/Debug/net9.0/ProyectoFinal-Stelos.pdb      |  Bin [31m26056[m -> [32m0[m bytes
+ ProyectoFinal-Stelos/obj/Debug/net9.0/apphost.exe  |  Bin [31m145920[m -> [32m0[m bytes
+ .../obj/Debug/net9.0/ref/ProyectoFinal-Stelos.dll  |  Bin [31m9728[m -> [32m0[m bytes
+ .../Debug/net9.0/refint/ProyectoFinal-Stelos.dll   |  Bin [31m9728[m -> [32m0[m bytes
+ .../obj/Debug/net9.0/rjsmcshtml.dswa.cache.json    |    1 [31m-[m
+ .../obj/Debug/net9.0/rjsmrazor.dswa.cache.json     |    1 [31m-[m
+ .../obj/Debug/net9.0/rpswa.dswa.cache.json         |    1 [31m-[m
+ .../net9.0/staticwebassets.build.endpoints.json    |    5 [31m-[m
+ .../obj/Debug/net9.0/staticwebassets.build.json    |   12 [31m-[m
+ .../Debug/net9.0/staticwebassets.build.json.cache  |    1 [31m-[m
+ .../staticwebassets.references.upToDateCheck.txt   |    0
+ .../obj/Debug/net9.0/staticwebassets.removed.txt   |    0
+ .../obj/Debug/net9.0/swae.build.ex.cache           |    0
+ .../ProyectoFinal-Stelos.csproj.nuget.dgspec.json  |  107 [31m-[m
+ .../obj/ProyectoFinal-Stelos.csproj.nuget.g.props  |   25 [31m-[m
+ .../ProyectoFinal-Stelos.csproj.nuget.g.targets    |   10 [31m-[m
+ ProyectoFinal-Stelos/obj/project.assets.json       | 4917 [31m--------------------[m
+ ProyectoFinal-Stelos/obj/project.nuget.cache       |   91 [31m-[m
+ 34 files changed, 5604 deletions(-)
+[33m5afd76e[m Fix ui error
+ .../net9.0/ProyectoFinal-Stelos.AssemblyInfo.cs    |  2 [32m+[m[31m-[m
+ .../ProyectoFinal-Stelos.AssemblyInfoInputs.cache  |  2 [32m+[m[31m-[m
+ .../obj/Debug/net9.0/rpswa.dswa.cache.json         |  2 [32m+[m[31m-[m
+ ProyectoFinal-Stelos/vista/stelos/app/globals.css  |  4 [32m+[m[31m-[m
+ .../vista/stelos/app/inventario/page.tsx           | 46 [32m++[m[31m-----------------[m
+ ProyectoFinal-Stelos/vista/stelos/app/layout.tsx   |  1 [32m+[m
+ .../vista/stelos/app/usuarios/page.tsx             | 51 [32m++[m[31m--------------------[m
+ .../vista/stelos/postcss.config.cjs                |  6 [32m+++[m
+ .../vista/stelos/tailwind.config.cjs               | 12 [32m+++++[m
+ ProyectoFinal-Stelos/vista/stelos/tsconfig.json    |  4 [32m+[m[31m-[m
+ 10 files changed, 36 insertions(+), 94 deletions(-)
+[33m23b77db[m Agregar ProductosController
+ .../Controllers/ProductosController.cs             |  88 [32m+++++++++++++++++++++[m
+ .../net9.0/ProyectoFinal-Stelos.AssemblyInfo.cs    |   2 [32m+[m[31m-[m
+ .../ProyectoFinal-Stelos.AssemblyInfoInputs.cache  |   2 [32m+[m[31m-[m
+ ...telos.GeneratedMSBuildEditorConfig.editorconfig |   2 [31m-[m
+ .../net9.0/ProyectoFinal-Stelos.GlobalUsings.g.cs  |  32 [32m++++[m[31m----[m
+ .../Debug/net9.0/ProyectoFinal-Stelos.assets.cache | Bin [31m65743[m -> [32m65743[m bytes
+ 6 files changed, 106 insertions(+), 20 deletions(-)
+[33m26c3afb[m Feature: configurar conexion a SqlServer y agregar migracion inicial
+ .../Controllers/WeatherForecastController.cs       |  33 [31m--[m
+ ProyectoFinal-Stelos/Data/AppDbContext.cs          |  34 [32m++[m
+ ProyectoFinal-Stelos/Dtos/DetalleVentaDto.cs       |   1 [31m-[m
+ .../20260526074702_InitialMigrate.Designer.cs      | 182 [32m+++++++++[m
+ .../Migrations/20260526074702_InitialMigrate.cs    | 120 [32m++++++[m
+ .../Migrations/AppDbContextModelSnapshot.cs        | 179 [32m+++++++++[m
+ ProyectoFinal-Stelos/Program.cs                    |   3 [32m+[m
+ ProyectoFinal-Stelos/ProyectoFinal-Stelos.csproj   |   4 [32m+[m
+ ProyectoFinal-Stelos/ProyectoFinal-Stelos.sln      |  22 [32m++[m
+ ProyectoFinal-Stelos/appsettings.json              |  19 [32m+[m[31m-[m
+ .../Debug/net9.0/ProyectoFinal-Stelos.deps.json    | 420 [32m+[m[31m--------------------[m
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.dll      | Bin [31m13824[m -> [32m38400[m bytes
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.exe      | Bin [31m145920[m -> [32m156672[m bytes
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.pdb      | Bin [31m26056[m -> [32m29812[m bytes
+ .../bin/Debug/net9.0/appsettings.json              |  19 [32m+[m[31m-[m
+ .../net9.0/ProyectoFinal-Stelos.AssemblyInfo.cs    |   2 [32m+[m[31m-[m
+ .../ProyectoFinal-Stelos.AssemblyInfoInputs.cache  |   2 [32m+[m[31m-[m
+ ...telos.GeneratedMSBuildEditorConfig.editorconfig |   2 [32m+[m
+ .../net9.0/ProyectoFinal-Stelos.GlobalUsings.g.cs  |  32 [32m+[m[31m-[m
+ ...Final-Stelos.MvcApplicationPartsAssemblyInfo.cs |   7 [32m+[m[31m-[m
+ .../Debug/net9.0/ProyectoFinal-Stelos.assets.cache | Bin [31m65743[m -> [32m65743[m bytes
+ ...ectoFinal-Stelos.csproj.CoreCompileInputs.cache |   2 [32m+[m[31m-[m
+ ...royectoFinal-Stelos.csproj.FileListAbsolute.txt |  13 [32m+[m[31m-[m
+ .../obj/Debug/net9.0/ProyectoFinal-Stelos.dll      | Bin [31m13824[m -> [32m38400[m bytes
+ .../obj/Debug/net9.0/ProyectoFinal-Stelos.pdb      | Bin [31m26056[m -> [32m29812[m bytes
+ ProyectoFinal-Stelos/obj/Debug/net9.0/apphost.exe  | Bin [31m145920[m -> [32m156672[m bytes
+ .../obj/Debug/net9.0/ref/ProyectoFinal-Stelos.dll  | Bin [31m9728[m -> [32m13312[m bytes
+ .../Debug/net9.0/refint/ProyectoFinal-Stelos.dll   | Bin [31m9728[m -> [32m13312[m bytes
+ .../obj/Debug/net9.0/rjsmcshtml.dswa.cache.json    |   2 [32m+[m[31m-[m
+ .../obj/Debug/net9.0/rjsmrazor.dswa.cache.json     |   2 [32m+[m[31m-[m
+ .../obj/Debug/net9.0/rpswa.dswa.cache.json         |   2 [32m+[m[31m-[m
+ .../ProyectoFinal-Stelos.csproj.nuget.dgspec.json  |  24 [32m+[m[31m-[m
+ .../obj/ProyectoFinal-Stelos.csproj.nuget.g.props  |   2 [32m+[m[31m-[m
+ ProyectoFinal-Stelos/obj/project.assets.json       |  24 [32m+[m[31m-[m
+ ProyectoFinal-Stelos/obj/project.nuget.cache       |   8 [32m+[m[31m-[m
+ 35 files changed, 661 insertions(+), 499 deletions(-)
+[33m9919c4d[m Agregar Dtos: UsuarioDto, DetalleVentaDto, VentaDto, ProductoDto
+ ProyectoFinal-Stelos/Dtos/DetalleVentaDto.cs       |  15 [32m+++++++++++++++[m
+ ProyectoFinal-Stelos/Dtos/ProductoDto.cs           |  11 [32m+++++++++++[m
+ ProyectoFinal-Stelos/Dtos/UsuarioDto.cs            |   9 [32m+++++++++[m
+ ProyectoFinal-Stelos/Dtos/VentaDto.cs              |  10 [32m++++++++++[m
+ ProyectoFinal-Stelos/ProyectoFinal-Stelos.csproj   |   4 [31m----[m
+ ProyectoFinal-Stelos/WeatherForecast.cs            |  13 [31m-------------[m
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.dll      | Bin [31m9728[m -> [32m13824[m bytes
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.exe      | Bin [31m145920[m -> [32m145920[m bytes
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.pdb      | Bin [31m23064[m -> [32m26056[m bytes
+ .../net9.0/ProyectoFinal-Stelos.AssemblyInfo.cs    |   2 [32m+[m[31m-[m
+ .../ProyectoFinal-Stelos.AssemblyInfoInputs.cache  |   2 [32m+[m[31m-[m
+ ...ectoFinal-Stelos.csproj.CoreCompileInputs.cache |   2 [32m+[m[31m-[m
+ .../obj/Debug/net9.0/ProyectoFinal-Stelos.dll      | Bin [31m9728[m -> [32m13824[m bytes
+ .../obj/Debug/net9.0/ProyectoFinal-Stelos.pdb      | Bin [31m23064[m -> [32m26056[m bytes
+ ProyectoFinal-Stelos/obj/Debug/net9.0/apphost.exe  | Bin [31m145920[m -> [32m145920[m bytes
+ .../obj/Debug/net9.0/ref/ProyectoFinal-Stelos.dll  | Bin [31m7168[m -> [32m9728[m bytes
+ .../Debug/net9.0/refint/ProyectoFinal-Stelos.dll   | Bin [31m7168[m -> [32m9728[m bytes
+ 17 files changed, 48 insertions(+), 20 deletions(-)
+[33m50a317d[m Agregar modelos de venta, usuario, producto y detalleventa
+ ProyectoFinal-Stelos/.gitignore                    |   4 [32m+[m
+ ProyectoFinal-Stelos/Models/DetalleVenta.cs        |  19 [32m+[m
+ ProyectoFinal-Stelos/Models/Producto.cs            |  14 [32m+[m
+ ProyectoFinal-Stelos/Models/Usuario.cs             |  10 [32m+[m
+ ProyectoFinal-Stelos/Models/Venta.cs               |  13 [32m+[m
+ ProyectoFinal-Stelos/Program.cs                    |  10 [32m+[m[31m-[m
+ ProyectoFinal-Stelos/ProyectoFinal-Stelos.csproj   |   4 [32m+[m
+ .../Debug/net9.0/ProyectoFinal-Stelos.deps.json    | 420 [32m++++++++++++++++++++[m[31m-[m
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.dll      | Bin [31m8704[m -> [32m9728[m bytes
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.exe      | Bin [31m156160[m -> [32m145920[m bytes
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.pdb      | Bin [31m22928[m -> [32m23064[m bytes
+ ...ectoFinal-Stelos.staticwebassets.endpoints.json |   6 [32m+[m[31m-[m
+ .../net9.0/ProyectoFinal-Stelos.AssemblyInfo.cs    |  12 [32m+[m[31m-[m
+ .../ProyectoFinal-Stelos.AssemblyInfoInputs.cache  |   2 [32m+[m[31m-[m
+ ...telos.GeneratedMSBuildEditorConfig.editorconfig |   7 [32m+[m[31m-[m
+ .../net9.0/ProyectoFinal-Stelos.GlobalUsings.g.cs  |  32 [32m+[m[31m-[m
+ ...Final-Stelos.MvcApplicationPartsAssemblyInfo.cs |  10 [32m+[m[31m-[m
+ .../Debug/net9.0/ProyectoFinal-Stelos.assets.cache | Bin [31m65487[m -> [32m65743[m bytes
+ ...ectoFinal-Stelos.csproj.AssemblyReference.cache | Bin [31m14723[m -> [32m14772[m bytes
+ ...ectoFinal-Stelos.csproj.CoreCompileInputs.cache |   2 [32m+[m[31m-[m
+ ...royectoFinal-Stelos.csproj.FileListAbsolute.txt | 161 [32m++++++++[m
+ .../obj/Debug/net9.0/ProyectoFinal-Stelos.dll      | Bin [31m8704[m -> [32m9728[m bytes
+ .../ProyectoFinal-Stelos.genruntimeconfig.cache    |   2 [32m+[m[31m-[m
+ .../obj/Debug/net9.0/ProyectoFinal-Stelos.pdb      | Bin [31m22928[m -> [32m23064[m bytes
+ ProyectoFinal-Stelos/obj/Debug/net9.0/apphost.exe  | Bin [31m156160[m -> [32m145920[m bytes
+ .../obj/Debug/net9.0/ref/ProyectoFinal-Stelos.dll  | Bin [31m6656[m -> [32m7168[m bytes
+ .../Debug/net9.0/refint/ProyectoFinal-Stelos.dll   | Bin [31m6656[m -> [32m7168[m bytes
+ .../net9.0/staticwebassets.build.endpoints.json    |   6 [32m+[m[31m-[m
+ .../obj/Debug/net9.0/staticwebassets.build.json    |  13 [32m+[m[31m-[m
+ .../ProyectoFinal-Stelos.csproj.nuget.dgspec.json  |  23 [32m+[m[31m-[m
+ .../obj/ProyectoFinal-Stelos.csproj.nuget.g.props  |  10 [32m+[m[31m-[m
+ ProyectoFinal-Stelos/obj/project.assets.json       |  23 [32m+[m[31m-[m
+ ProyectoFinal-Stelos/obj/project.nuget.cache       | 168 [32m++++[m[31m-----[m
+ 33 files changed, 805 insertions(+), 166 deletions(-)
+[33mf88d15d[m frontend ready for api
+ .../net9.0/ProyectoFinal-Stelos.AssemblyInfo.cs    |    2 [32m+[m[31m-[m
+ .../ProyectoFinal-Stelos.AssemblyInfoInputs.cache  |    2 [32m+[m[31m-[m
+ .../obj/Debug/net9.0/rpswa.dswa.cache.json         |    2 [32m+[m[31m-[m
+ ProyectoFinal-Stelos/vista/stelos/.gitignore       |   41 [32m+[m
+ ProyectoFinal-Stelos/vista/stelos/.npmrc           |    1 [32m+[m
+ ProyectoFinal-Stelos/vista/stelos/README.md        |   36 [32m+[m
+ .../vista/stelos/app/configuracion/loading.tsx     |    3 [32m+[m
+ .../vista/stelos/app/configuracion/page.tsx        |  446 [32m+++[m
+ ProyectoFinal-Stelos/vista/stelos/app/favicon.ico  |  Bin [31m0[m -> [32m25931[m bytes
+ ProyectoFinal-Stelos/vista/stelos/app/globals.css  |  129 [32m+[m
+ .../vista/stelos/app/inventario/loading.tsx        |    3 [32m+[m
+ .../vista/stelos/app/inventario/page.tsx           |  339 [32m++[m
+ ProyectoFinal-Stelos/vista/stelos/app/layout.tsx   |   42 [32m+[m
+ ProyectoFinal-Stelos/vista/stelos/app/page.tsx     |  103 [32m+[m
+ .../vista/stelos/app/reportes/loading.tsx          |    3 [32m+[m
+ .../vista/stelos/app/reportes/page.tsx             |  165 [32m+[m
+ .../vista/stelos/app/usuarios/loading.tsx          |    3 [32m+[m
+ .../vista/stelos/app/usuarios/page.tsx             |  260 [32m++[m
+ .../vista/stelos/app/ventas/loading.tsx            |    3 [32m+[m
+ .../vista/stelos/app/ventas/page.tsx               |  201 [32m++[m
+ ProyectoFinal-Stelos/vista/stelos/components.json  |   22 [32m+[m
+ .../vista/stelos/components/header.tsx             |   55 [32m+[m
+ .../vista/stelos/components/sidebar-nav.tsx        |   74 [32m+[m
+ .../vista/stelos/components/ui/badge.tsx           |   46 [32m+[m
+ .../vista/stelos/components/ui/button.tsx          |   60 [32m+[m
+ .../vista/stelos/components/ui/card.tsx            |   92 [32m+[m
+ .../vista/stelos/components/ui/dialog.tsx          |  143 [32m+[m
+ .../vista/stelos/components/ui/dropdown-menu.tsx   |  257 [32m++[m
+ .../vista/stelos/components/ui/input.tsx           |   21 [32m+[m
+ .../vista/stelos/components/ui/label.tsx           |   24 [32m+[m
+ .../vista/stelos/components/ui/select.tsx          |  202 [32m++[m
+ .../vista/stelos/components/ui/table.tsx           |  116 [32m+[m
+ .../vista/stelos/components/ui/tabs.tsx            |   66 [32m+[m
+ .../vista/stelos/components/ui/textarea.tsx        |   18 [32m+[m
+ .../vista/stelos/eslint.config.mjs                 |   16 [32m+[m
+ ProyectoFinal-Stelos/vista/stelos/lib/utils.ts     |    6 [32m+[m
+ ProyectoFinal-Stelos/vista/stelos/next.config.ts   |    7 [32m+[m
+ .../vista/stelos/package-lock.json                 | 3806 [32m++++++++++++++++++++[m
+ ProyectoFinal-Stelos/vista/stelos/package.json     |   73 [32m+[m
+ .../vista/stelos/postcss.config.mjs                |    5 [32m+[m
+ ProyectoFinal-Stelos/vista/stelos/public/file.svg  |    1 [32m+[m
+ ProyectoFinal-Stelos/vista/stelos/public/globe.svg |    1 [32m+[m
+ ProyectoFinal-Stelos/vista/stelos/public/next.svg  |    1 [32m+[m
+ .../vista/stelos/public/reporte-de-ventas.jpg      |  Bin [31m0[m -> [32m41166[m bytes
+ .../vista/stelos/public/vercel.svg                 |    1 [32m+[m
+ .../vista/stelos/public/window.svg                 |    1 [32m+[m
+ ProyectoFinal-Stelos/vista/stelos/tsconfig.json    |   40 [32m+[m
+ 47 files changed, 6935 insertions(+), 3 deletions(-)
+[33m54c14e7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m initial commit
+ .../Controllers/WeatherForecastController.cs       |   33 [32m+[m
+ ProyectoFinal-Stelos/Program.cs                    |   25 [32m+[m
+ .../Properties/launchSettings.json                 |   23 [32m+[m
+ ProyectoFinal-Stelos/ProyectoFinal-Stelos.csproj   |   25 [32m+[m
+ .../ProyectoFinal-Stelos.csproj.user               |    6 [32m+[m
+ ProyectoFinal-Stelos/ProyectoFinal-Stelos.http     |    6 [32m+[m
+ ProyectoFinal-Stelos/README.md                     |    6 [32m+[m
+ ProyectoFinal-Stelos/WeatherForecast.cs            |   13 [32m+[m
+ ProyectoFinal-Stelos/appsettings.Development.json  |    8 [32m+[m
+ ProyectoFinal-Stelos/appsettings.json              |    9 [32m+[m
+ .../bin/Debug/net9.0/Azure.Core.dll                |  Bin [31m0[m -> [32m400936[m bytes
+ .../bin/Debug/net9.0/Azure.Identity.dll            |  Bin [31m0[m -> [32m342960[m bytes
+ .../bin/Debug/net9.0/Humanizer.dll                 |  Bin [31m0[m -> [32m355944[m bytes
+ .../Debug/net9.0/Microsoft.AspNetCore.OpenApi.dll  |  Bin [31m0[m -> [32m194896[m bytes
+ .../Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll |  Bin [31m0[m -> [32m19072[m bytes
+ .../bin/Debug/net9.0/Microsoft.Build.Locator.dll   |  Bin [31m0[m -> [32m44576[m bytes
+ .../Microsoft.CodeAnalysis.CSharp.Workspaces.dll   |  Bin [31m0[m -> [32m883472[m bytes
+ .../Debug/net9.0/Microsoft.CodeAnalysis.CSharp.dll |  Bin [31m0[m -> [32m6501536[m bytes
+ ...t.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll |  Bin [31m0[m -> [32m86688[m bytes
+ .../Microsoft.CodeAnalysis.Workspaces.MSBuild.dll  |  Bin [31m0[m -> [32m72864[m bytes
+ .../net9.0/Microsoft.CodeAnalysis.Workspaces.dll   |  Bin [31m0[m -> [32m3852448[m bytes
+ .../bin/Debug/net9.0/Microsoft.CodeAnalysis.dll    |  Bin [31m0[m -> [32m2895520[m bytes
+ .../bin/Debug/net9.0/Microsoft.Data.SqlClient.dll  |  Bin [31m0[m -> [32m275984[m bytes
+ .../Microsoft.EntityFrameworkCore.Abstractions.dll |  Bin [31m0[m -> [32m34856[m bytes
+ .../Microsoft.EntityFrameworkCore.Design.dll       |  Bin [31m0[m -> [32m623160[m bytes
+ .../Microsoft.EntityFrameworkCore.Relational.dll   |  Bin [31m0[m -> [32m2137136[m bytes
+ .../Microsoft.EntityFrameworkCore.SqlServer.dll    |  Bin [31m0[m -> [32m610872[m bytes
+ .../Debug/net9.0/Microsoft.EntityFrameworkCore.dll |  Bin [31m0[m -> [32m2683432[m bytes
+ .../Microsoft.Extensions.DependencyModel.dll       |  Bin [31m0[m -> [32m85272[m bytes
+ .../Microsoft.Identity.Client.Extensions.Msal.dll  |  Bin [31m0[m -> [32m66592[m bytes
+ .../bin/Debug/net9.0/Microsoft.Identity.Client.dll |  Bin [31m0[m -> [32m1005600[m bytes
+ .../Microsoft.IdentityModel.Abstractions.dll       |  Bin [31m0[m -> [32m18968[m bytes
+ .../Microsoft.IdentityModel.JsonWebTokens.dll      |  Bin [31m0[m -> [32m112576[m bytes
+ .../net9.0/Microsoft.IdentityModel.Logging.dll     |  Bin [31m0[m -> [32m36792[m bytes
+ ...osoft.IdentityModel.Protocols.OpenIdConnect.dll |  Bin [31m0[m -> [32m114104[m bytes
+ .../net9.0/Microsoft.IdentityModel.Protocols.dll   |  Bin [31m0[m -> [32m39864[m bytes
+ .../net9.0/Microsoft.IdentityModel.Tokens.dll      |  Bin [31m0[m -> [32m993312[m bytes
+ .../bin/Debug/net9.0/Microsoft.OpenApi.dll         |  Bin [31m0[m -> [32m239024[m bytes
+ .../Debug/net9.0/Microsoft.SqlServer.Server.dll    |  Bin [31m0[m -> [32m23976[m bytes
+ .../Debug/net9.0/Microsoft.Win32.SystemEvents.dll  |  Bin [31m0[m -> [32m26224[m bytes
+ .../bin/Debug/net9.0/Mono.TextTemplating.dll       |  Bin [31m0[m -> [32m177664[m bytes
+ .../Debug/net9.0/ProyectoFinal-Stelos.deps.json    | 1160 [32m+++++[m
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.dll      |  Bin [31m0[m -> [32m8704[m bytes
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.exe      |  Bin [31m0[m -> [32m156160[m bytes
+ .../bin/Debug/net9.0/ProyectoFinal-Stelos.pdb      |  Bin [31m0[m -> [32m22928[m bytes
+ .../net9.0/ProyectoFinal-Stelos.runtimeconfig.json |   20 [32m+[m
+ ...ectoFinal-Stelos.staticwebassets.endpoints.json |    1 [32m+[m
+ .../bin/Debug/net9.0/Scalar.AspNetCore.dll         |  Bin [31m0[m -> [32m1389568[m bytes
+ .../bin/Debug/net9.0/System.ClientModel.dll        |  Bin [31m0[m -> [32m28608[m bytes
+ .../bin/Debug/net9.0/System.CodeDom.dll            |  Bin [31m0[m -> [32m184944[m bytes
+ .../net9.0/System.Composition.AttributedModel.dll  |  Bin [31m0[m -> [32m20096[m bytes
+ .../Debug/net9.0/System.Composition.Convention.dll |  Bin [31m0[m -> [32m53880[m bytes
+ .../Debug/net9.0/System.Composition.Hosting.dll    |  Bin [31m0[m -> [32m55440[m bytes
+ .../Debug/net9.0/System.Composition.Runtime.dll    |  Bin [31m0[m -> [32m26240[m bytes
+ .../Debug/net9.0/System.Composition.TypedParts.dll |  Bin [31m0[m -> [32m65168[m bytes
+ .../System.Configuration.ConfigurationManager.dll  |  Bin [31m0[m -> [32m396424[m bytes
+ .../bin/Debug/net9.0/System.Drawing.Common.dll     |  Bin [31m0[m -> [32m175216[m bytes
+ .../net9.0/System.IdentityModel.Tokens.Jwt.dll     |  Bin [31m0[m -> [32m77344[m bytes
+ .../bin/Debug/net9.0/System.Memory.Data.dll        |  Bin [31m0[m -> [32m21368[m bytes
+ .../bin/Debug/net9.0/System.Runtime.Caching.dll    |  Bin [31m0[m -> [32m89200[m bytes
+ .../System.Security.Cryptography.ProtectedData.dll |  Bin [31m0[m -> [32m20592[m bytes
+ .../Debug/net9.0/System.Security.Permissions.dll   |  Bin [31m0[m -> [32m104048[m bytes
+ .../bin/Debug/net9.0/System.Windows.Extensions.dll |  Bin [31m0[m -> [32m25712[m bytes
+ .../bin/Debug/net9.0/appsettings.Development.json  |    8 [32m+[m
+ .../bin/Debug/net9.0/appsettings.json              |    9 [32m+[m
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18080[m bytes
+ .../cs/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m0[m -> [32m421552[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17568[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m48304[m bytes
+ .../net9.0/cs/Microsoft.CodeAnalysis.resources.dll |  Bin [31m0[m -> [32m46752[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18080[m bytes
+ .../de/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m0[m -> [32m450208[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17568[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m49824[m bytes
+ .../net9.0/de/Microsoft.CodeAnalysis.resources.dll |  Bin [31m0[m -> [32m48304[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18080[m bytes
+ .../es/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m0[m -> [32m440480[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17584[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m49824[m bytes
+ .../net9.0/es/Microsoft.CodeAnalysis.resources.dll |  Bin [31m0[m -> [32m48304[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18192[m bytes
+ .../fr/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m0[m -> [32m451232[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17680[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m50848[m bytes
+ .../net9.0/fr/Microsoft.CodeAnalysis.resources.dll |  Bin [31m0[m -> [32m48800[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18096[m bytes
+ .../it/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m0[m -> [32m447240[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17584[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m50336[m bytes
+ .../net9.0/it/Microsoft.CodeAnalysis.resources.dll |  Bin [31m0[m -> [32m48800[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18096[m bytes
+ .../ja/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m0[m -> [32m492704[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17584[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m53408[m bytes
+ .../net9.0/ja/Microsoft.CodeAnalysis.resources.dll |  Bin [31m0[m -> [32m51872[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18192[m bytes
+ .../ko/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m0[m -> [32m452272[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17568[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m50336[m bytes
+ .../net9.0/ko/Microsoft.CodeAnalysis.resources.dll |  Bin [31m0[m -> [32m48800[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18208[m bytes
+ .../pl/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m0[m -> [32m453280[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17568[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m49840[m bytes
+ .../net9.0/pl/Microsoft.CodeAnalysis.resources.dll |  Bin [31m0[m -> [32m48816[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18096[m bytes
+ .../Microsoft.CodeAnalysis.CSharp.resources.dll    |  Bin [31m0[m -> [32m432800[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17568[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m49312[m bytes
+ .../pt-BR/Microsoft.CodeAnalysis.resources.dll     |  Bin [31m0[m -> [32m47264[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18704[m bytes
+ .../ru/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m0[m -> [32m595104[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17568[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m57504[m bytes
+ .../net9.0/ru/Microsoft.CodeAnalysis.resources.dll |  Bin [31m0[m -> [32m58528[m bytes
+ .../unix/lib/net6.0/Microsoft.Data.SqlClient.dll   |  Bin [31m0[m -> [32m1559184[m bytes
+ .../unix/lib/net6.0/System.Drawing.Common.dll      |  Bin [31m0[m -> [32m427112[m bytes
+ .../native/Microsoft.Data.SqlClient.SNI.dll        |  Bin [31m0[m -> [32m381984[m bytes
+ .../native/Microsoft.Data.SqlClient.SNI.dll        |  Bin [31m0[m -> [32m491552[m bytes
+ .../native/Microsoft.Data.SqlClient.SNI.dll        |  Bin [31m0[m -> [32m504872[m bytes
+ .../native/Microsoft.Data.SqlClient.SNI.dll        |  Bin [31m0[m -> [32m414248[m bytes
+ .../win/lib/net6.0/Microsoft.Data.SqlClient.dll    |  Bin [31m0[m -> [32m1643168[m bytes
+ .../lib/net6.0/Microsoft.Win32.SystemEvents.dll    |  Bin [31m0[m -> [32m53352[m bytes
+ .../win/lib/net6.0/System.Drawing.Common.dll       |  Bin [31m0[m -> [32m454248[m bytes
+ .../win/lib/net6.0/System.Runtime.Caching.dll      |  Bin [31m0[m -> [32m91240[m bytes
+ .../System.Security.Cryptography.ProtectedData.dll |  Bin [31m0[m -> [32m33904[m bytes
+ .../win/lib/net6.0/System.Windows.Extensions.dll   |  Bin [31m0[m -> [32m43112[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18192[m bytes
+ .../tr/Microsoft.CodeAnalysis.CSharp.resources.dll |  Bin [31m0[m -> [32m429216[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17584[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m48288[m bytes
+ .../net9.0/tr/Microsoft.CodeAnalysis.resources.dll |  Bin [31m0[m -> [32m46752[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18080[m bytes
+ .../Microsoft.CodeAnalysis.CSharp.resources.dll    |  Bin [31m0[m -> [32m382128[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17568[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m46240[m bytes
+ .../zh-Hans/Microsoft.CodeAnalysis.resources.dll   |  Bin [31m0[m -> [32m43680[m bytes
+ ...ft.CodeAnalysis.CSharp.Workspaces.resources.dll |  Bin [31m0[m -> [32m18192[m bytes
+ .../Microsoft.CodeAnalysis.CSharp.resources.dll    |  Bin [31m0[m -> [32m381600[m bytes
+ ...ysis.Workspaces.MSBuild.BuildHost.resources.dll |  Bin [31m0[m -> [32m17568[m bytes
+ ...Microsoft.CodeAnalysis.Workspaces.resources.dll |  Bin [31m0[m -> [32m46256[m bytes
+ .../zh-Hant/Microsoft.CodeAnalysis.resources.dll   |  Bin [31m0[m -> [32m44192[m bytes
+ .../.NETCoreApp,Version=v9.0.AssemblyAttributes.cs |    4 [32m+[m
+ .../obj/Debug/net9.0/ApiEndpoints.json             |   23 [32m+[m
+ .../obj/Debug/net9.0/Proyecto.87EEAFF6.Up2Date     |    0
+ .../net9.0/ProyectoFinal-Stelos.AssemblyInfo.cs    |   23 [32m+[m
+ .../ProyectoFinal-Stelos.AssemblyInfoInputs.cache  |    1 [32m+[m
+ ...telos.GeneratedMSBuildEditorConfig.editorconfig |   32 [32m+[m
+ .../net9.0/ProyectoFinal-Stelos.GlobalUsings.g.cs  |   17 [32m+[m
+ ...al-Stelos.MvcApplicationPartsAssemblyInfo.cache |    0
+ ...Final-Stelos.MvcApplicationPartsAssemblyInfo.cs |   17 [32m+[m
+ .../Debug/net9.0/ProyectoFinal-Stelos.assets.cache |  Bin [31m0[m -> [32m65487[m bytes
+ ...ectoFinal-Stelos.csproj.AssemblyReference.cache |  Bin [31m0[m -> [32m14723[m bytes
+ ...yectoFinal-Stelos.csproj.BuildWithSkipAnalyzers |    0
+ ...ectoFinal-Stelos.csproj.CoreCompileInputs.cache |    1 [32m+[m
+ ...royectoFinal-Stelos.csproj.FileListAbsolute.txt |  156 [32m+[m
+ .../obj/Debug/net9.0/ProyectoFinal-Stelos.dll      |  Bin [31m0[m -> [32m8704[m bytes
+ .../ProyectoFinal-Stelos.genruntimeconfig.cache    |    1 [32m+[m
+ .../obj/Debug/net9.0/ProyectoFinal-Stelos.pdb      |  Bin [31m0[m -> [32m22928[m bytes
+ ProyectoFinal-Stelos/obj/Debug/net9.0/apphost.exe  |  Bin [31m0[m -> [32m156160[m bytes
+ .../obj/Debug/net9.0/ref/ProyectoFinal-Stelos.dll  |  Bin [31m0[m -> [32m6656[m bytes
+ .../Debug/net9.0/refint/ProyectoFinal-Stelos.dll   |  Bin [31m0[m -> [32m6656[m bytes
+ .../obj/Debug/net9.0/rjsmcshtml.dswa.cache.json    |    1 [32m+[m
+ .../obj/Debug/net9.0/rjsmrazor.dswa.cache.json     |    1 [32m+[m
+ .../obj/Debug/net9.0/rpswa.dswa.cache.json         |    1 [32m+[m
+ .../net9.0/staticwebassets.build.endpoints.json    |    1 [32m+[m
+ .../obj/Debug/net9.0/staticwebassets.build.json    |    1 [32m+[m
+ .../Debug/net9.0/staticwebassets.build.json.cache  |    1 [32m+[m
+ .../staticwebassets.references.upToDateCheck.txt   |    0
+ .../obj/Debug/net9.0/staticwebassets.removed.txt   |    0
+ .../obj/Debug/net9.0/swae.build.ex.cache           |    0
+ .../ProyectoFinal-Stelos.csproj.nuget.dgspec.json  |  108 [32m+[m
+ .../obj/ProyectoFinal-Stelos.csproj.nuget.g.props  |   25 [32m+[m
+ .../ProyectoFinal-Stelos.csproj.nuget.g.targets    |   10 [32m+[m
+ ProyectoFinal-Stelos/obj/project.assets.json       | 4918 [32m++++++++++++++++++++[m
+ ProyectoFinal-Stelos/obj/project.nuget.cache       |   91 [32m+[m
+ 176 files changed, 6785 insertions(+)
