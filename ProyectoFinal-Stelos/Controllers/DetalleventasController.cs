@@ -78,9 +78,7 @@ namespace ProyectoFinal_Stelos.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDetalleVenta(
-            int id,
-            DetalleVentaDto dto)
+        public async Task<IActionResult> PutDetalleVenta(int id, DetalleVentaDto dto)
         {
             var detalle = await _context.DetalleVentas
                 .FindAsync(id);
