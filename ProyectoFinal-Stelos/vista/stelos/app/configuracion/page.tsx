@@ -29,8 +29,25 @@ import {
 	Settings,
 	Upload,
 } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+
 
 export default function ConfiguracionPage() {
+	const router = useRouter()
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem('isAuthenticated')
+
+    if (isAuthenticated !== 'true') {
+      router.replace('/login')
+      return
+    }
+
+    setReady(true)
+  }, [router])
+  
 	return (
 		<div className="flex h-screen flex-col">
 			<Header />

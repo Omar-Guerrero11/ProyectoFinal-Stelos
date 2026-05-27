@@ -10,8 +10,17 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Bell, User } from 'lucide-react'
+import { useRouter } from 'next/dist/client/components/navigation'
 
 export function Header() {
+	const router = useRouter()
+
+  const handleLogout = () => {
+    localStorage.removeItem('isAuthenticated')
+    localStorage.removeItem('usuario')
+    router.replace('/login')
+    router.refresh()
+  }
 	return (
 		<header className="sticky top-0 z-50 w-full border-b bg-primary">
 			<div className="flex h-16 items-center justify-between px-6">
@@ -45,7 +54,9 @@ export function Header() {
 							<DropdownMenuItem>Perfil</DropdownMenuItem>
 							<DropdownMenuItem>Configuración</DropdownMenuItem>
 							<DropdownMenuSeparator />
-							<DropdownMenuItem>Cerrar sesión</DropdownMenuItem>
+							<DropdownMenuItem onClick={handleLogout}>
+								Cerrar sesión
+							</DropdownMenuItem>
 						</DropdownMenuContent>
 					</DropdownMenu>
 				</div>

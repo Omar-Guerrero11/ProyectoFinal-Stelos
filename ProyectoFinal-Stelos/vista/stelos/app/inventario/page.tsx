@@ -31,6 +31,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Package } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { createProducto, getProductos } from '@/lib/api'
+import { useRouter } from 'next/dist/client/components/navigation'
 
 type Producto = {
 	id: number
@@ -51,6 +52,19 @@ export default function InventarioPage() {
 		talla: '',
 		stock: '',
 	})
+	 const router = useRouter()
+		const [ready, setReady] = useState(false)
+	  
+		useEffect(() => {
+		  const isAuthenticated = localStorage.getItem('isAuthenticated')
+	  
+		  if (isAuthenticated !== 'true') {
+			router.replace('/login')
+			return
+		  }
+	  
+		  setReady(true)
+		}, [router])
 
 	useEffect(() => {
 		const loadProductos = async () => {

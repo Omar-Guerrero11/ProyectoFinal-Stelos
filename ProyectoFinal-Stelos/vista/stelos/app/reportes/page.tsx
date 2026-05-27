@@ -14,11 +14,26 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { BarChart3, Package } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { getReporteVentasGeneral } from '@/lib/api'
+import { useRouter } from 'next/dist/client/components/navigation'
 
 export default function ReportesPage() {
 	const [reporteVentas, setReporteVentas] = useState('')
 	const [loadingReporte, setLoadingReporte] = useState(true)
 
+	 const router = useRouter()
+		const [ready, setReady] = useState(false)
+	  
+		useEffect(() => {
+		  const isAuthenticated = localStorage.getItem('isAuthenticated')
+	  
+		  if (isAuthenticated !== 'true') {
+			router.replace('/login')
+			return
+		  }
+	  
+		  setReady(true)
+		}, [router])
+		
 	const loadReporte = async () => {
 		setLoadingReporte(true)
 		try {

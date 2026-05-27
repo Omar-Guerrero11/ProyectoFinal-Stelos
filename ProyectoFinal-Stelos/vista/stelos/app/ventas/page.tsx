@@ -34,6 +34,7 @@ import {
 	createVenta,
 	getProductos,
 } from '@/lib/api'
+import { useRouter } from 'next/dist/client/components/navigation'
 
 type CartItem = {
 	id: string
@@ -66,6 +67,20 @@ export default function VentasPage() {
 	const [estado, setEstado] = useState('Pendiente')
 	const [submitStatus, setSubmitStatus] = useState('')
 
+	const router = useRouter()
+			const [ready, setReady] = useState(false)
+		  
+			useEffect(() => {
+			  const isAuthenticated = localStorage.getItem('isAuthenticated')
+		  
+			  if (isAuthenticated !== 'true') {
+				router.replace('/login')
+				return
+			  }
+		  
+			  setReady(true)
+			}, [router])
+			
 	useEffect(() => {
 		const loadProductos = async () => {
 			try {

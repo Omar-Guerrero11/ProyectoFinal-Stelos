@@ -40,12 +40,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Shield, UserPlus, Users } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { createUsuario, getUsuarios } from '@/lib/api'
+import { useRouter } from 'next/dist/client/components/navigation'
 
 type Usuario = {
 	id: number
 	nombre: string
 	email: string
 	rol: string
+	contrasena: string
 }
 
 export default function UsuariosPage() {
@@ -56,9 +58,23 @@ export default function UsuariosPage() {
 		nombre: '',
 		email: '',
 		rol: '',
-		password: '',
+		contrasena: '',
 	})
 
+	 const router = useRouter()
+		const [ready, setReady] = useState(false)
+	  
+		useEffect(() => {
+		  const isAuthenticated = localStorage.getItem('isAuthenticated')
+	  
+		  if (isAuthenticated !== 'true') {
+			router.replace('/login')
+			return
+		  }
+	  
+		  setReady(true)
+		}, [router])
+		
 	useEffect(() => {
 		const loadUsuarios = async () => {
 			try {
@@ -86,12 +102,12 @@ export default function UsuariosPage() {
 			nombre: nuevoUsuario.nombre.trim(),
 			email: nuevoUsuario.email.trim(),
 			rol: nuevoUsuario.rol,
-			password: nuevoUsuario.password,
+			contrasena: nuevoUsuario.contrasena.trim(),
 		}
 
 		const created = await createUsuario(payload)
 		setUsuarios((prev: Usuario[]) => [created, ...prev])
-		setNuevoUsuario({ nombre: '', email: '', rol: '', password: '' })
+		setNuevoUsuario({ nombre: '', email: '', rol: '', contrasena: '' })
 		setOpenNewUser(false)
 	}
 
@@ -205,8 +221,8 @@ export default function UsuariosPage() {
 														id="nuevo-password"
 														type="password"
 														placeholder="Contraseña"
-														value={nuevoUsuario.password}
-														onChange={handleNuevoUsuarioChange('password')}
+														value={nuevoUsuario.contrasena}
+														onChange={handleNuevoUsuarioChange('contrasena')}
 													/>
 														</div>
 													</div>

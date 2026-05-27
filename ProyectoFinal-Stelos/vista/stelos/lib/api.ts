@@ -10,12 +10,12 @@ export type UsuarioDto = {
   nombre: string
   email: string
   rol: string
-  password: string
+  contrasena: string
 }
 
 export type LoginDto = {
   email: string
-  password: string
+  contrasena: string
 }
 
 export type VentaDto = {
@@ -39,9 +39,7 @@ const jsonHeaders = {
   'Content-Type': 'application/json',
 }
 
-const apiBaseUrl =
-  (globalThis as { process?: { env?: Record<string, string> } }).process?.env
-    ?.NEXT_PUBLIC_API_BASE_URL ?? ''
+const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL ?? ''
 
 const buildUrl = (path: string) => {
   if (!apiBaseUrl) {
@@ -80,11 +78,14 @@ export async function login(dto: LoginDto) {
     body: JSON.stringify(dto),
   })
 
+  const data = await response.json()
+  console.log(data)
+
   if (!response.ok) {
-    throw new Error('Credenciales inválidas')
+    throw new Error(data?.message || 'Credenciales inválidas')
   }
 
-  return response.json()
+  return data
 }
 
 export async function getReporteVentasGeneral() {
