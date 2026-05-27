@@ -1,36 +1,4 @@
-# Visual Studio
 .vs/
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-
-# Build folders
 bin/
 obj/
-
-# Logs and caches
-*.log
-*.cache
-
-# NuGet
-*.nupkg
-packages/
-
-# Frontend
-node_modules/
-dist/
-build/
-.next/
-out/
-
-# Environment
-.env
-.env.*
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# VS Code
-.vscode/
+*.user

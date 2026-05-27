@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProyectoFinal_Stelos.Data;
 using ProyectoFinal_Stelos.Models;
+using ProyectoFinal_Stelos.Dtos;
 
 namespace ProyectoFinal_Stelos.Controllers
 {
@@ -40,47 +41,60 @@ namespace ProyectoFinal_Stelos.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<DetalleVenta>> PostDetalleVenta(DetalleVenta detalleVenta)
+        public async Task<ActionResult<DetalleVenta>> PostDetalleVenta(DetalleVentaDto dto)
         {
-            var ventaExiste = await _context.Ventas.AnyAsync(v => v.Id == detalleVenta.VentaId);
+            var ventaExiste = await _context.Ventas
+                .AnyAsync(v => v.Id == dto.VentaId);
+
             if (!ventaExiste)
                 return BadRequest("La venta no existe.");
 
-            var productoExiste = await _context.Productos.AnyAsync(p => p.Id == detalleVenta.ProductoId);
+            var productoExiste = await _context.Productos
+                .AnyAsync(p => p.Id == dto.ProductoId);
+
             if (!productoExiste)
                 return BadRequest("El producto no existe.");
 
+            var detalleVenta = new DetalleVenta
+            {
+                VentaId = dto.VentaId,
+                ProductoId = dto.ProductoId,
+                ProductoNombre = dto.ProductoNombre,
+                Talla = dto.Talla,
+                Cantidad = dto.Cantidad,
+                PrecioUnitario = dto.PrecioUnitario,
+                Subtotal = dto.Subtotal
+            };
+
             _context.DetalleVentas.Add(detalleVenta);
+
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetDetalleVenta), new { id = detalleVenta.Id }, detalleVenta);
+            return CreatedAtAction(
+                nameof(GetDetalleVenta),
+                new { id = detalleVenta.Id },
+                detalleVenta
+            );
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDetalleVenta(int id, DetalleVenta detalleVenta)
+        public async Task<IActionResult> PutDetalleVenta(
+            int id,
+            DetalleVentaDto dto)
         {
-            if (id != detalleVenta.Id)
-                return BadRequest();
+            var detalle = await _context.DetalleVentas
+                .FindAsync(id);
 
-            var detalleExistente = await _context.DetalleVentas.FindAsync(id);
-            if (detalleExistente == null)
+            if (detalle == null)
                 return NotFound();
 
-            var ventaExiste = await _context.Ventas.AnyAsync(v => v.Id == detalleVenta.VentaId);
-            if (!ventaExiste)
-                return BadRequest("La venta no existe.");
-
-            var productoExiste = await _context.Productos.AnyAsync(p => p.Id == detalleVenta.ProductoId);
-            if (!productoExiste)
-                return BadRequest("El producto no existe.");
-
-            detalleExistente.VentaId = detalleVenta.VentaId;
-            detalleExistente.ProductoId = detalleVenta.ProductoId;
-            detalleExistente.ProductoNombre = detalleVenta.ProductoNombre;
-            detalleExistente.Talla = detalleVenta.Talla;
-            detalleExistente.Cantidad = detalleVenta.Cantidad;
-            detalleExistente.PrecioUnitario = detalleVenta.PrecioUnitario;
-            detalleExistente.Subtotal = detalleVenta.Subtotal;
+            detalle.VentaId = dto.VentaId;
+            detalle.ProductoId = dto.ProductoId;
+            detalle.ProductoNombre = dto.ProductoNombre;
+            detalle.Talla = dto.Talla;
+            detalle.Cantidad = dto.Cantidad;
+            detalle.PrecioUnitario = dto.PrecioUnitario;
+            detalle.Subtotal = dto.Subtotal;
 
             await _context.SaveChangesAsync();
 
@@ -90,12 +104,14 @@ namespace ProyectoFinal_Stelos.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDetalleVenta(int id)
         {
-            var detalleVenta = await _context.DetalleVentas.FindAsync(id);
+            var detalle = await _context.DetalleVentas
+                .FindAsync(id);
 
-            if (detalleVenta == null)
+            if (detalle == null)
                 return NotFound();
 
-            _context.DetalleVentas.Remove(detalleVenta);
+            _context.DetalleVentas.Remove(detalle);
+
             await _context.SaveChangesAsync();
 
             return NoContent();
