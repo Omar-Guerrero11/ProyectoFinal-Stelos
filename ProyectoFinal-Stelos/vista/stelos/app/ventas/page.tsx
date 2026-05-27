@@ -1,5 +1,5 @@
 'use client'
-
+import { v4 as uuidv4 } from 'uuid'
 import { Header } from '@/components/header'
 import { SidebarNav } from '@/components/sidebar-nav'
 import { Button } from '@/components/ui/button'
@@ -108,7 +108,7 @@ export default function VentasPage() {
 		setCart([
 			...cart,
 			{
-				id: crypto.randomUUID(),
+				id: uuidv4(),				
 				productoId: producto.id,
 				productoNombre: producto.nombre,
 				talla,
